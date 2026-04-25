@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 from src.bag.get_building_polygon import AddressOutOfCoverageError
-from src.calc.damage_scanner_interface import (
+from src.calc.models import (
     BuildingClassifierType,
     BuildingDataInput,
     DamageScannerInputs,

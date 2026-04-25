@@ -14,7 +14,8 @@ from shapely.geometry import box
 
 import geopandas as gpd
 
-from src.calc.damage_scanner_interface import BuildingClassifierType, BuildingDataInput, DamageScannerInputs, DamageScannerInterface
+from src.calc.damage_scanner_interface import DamageScannerInterface
+from src.calc.models import BuildingClassifierType, BuildingDataInput, DamageScannerInputs
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
