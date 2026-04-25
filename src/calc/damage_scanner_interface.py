@@ -9,7 +9,7 @@ import pandas as pd
 from src.bag.bag_ssm_classifier import BAGSSMClassifier
 from src.calc.file_mapping import DEFAULT_FLOODMAPS, FloodScenario
 from src.common.build_shapefile import create_gdf
-from damagescanner_local.core import DamageScanner
+from damagescanner.core import DamageScanner
 
 import geopandas as gpd
 
@@ -147,14 +147,26 @@ class BuildingDataInput:
 
 class BuildingDataInterface:
 
-    def __init__(self, inputs: list[BuildingDataInput], function_interface: DamageFunctionInterface, building_classifier_column: str = 'object_type'):
+    def __init__(
+        self,
+        inputs: list[BuildingDataInput],
+        function_interface: DamageFunctionInterface,
+        building_classifier_column: str = 'object_type',
+        coverage_floodmap_path: str | None = None,
+    ):
         self.inputs = inputs
         self.functions = function_interface
         self.building_classifier_column = building_classifier_column
+        self.coverage_floodmap_path = coverage_floodmap_path
         assert len(inputs) > 0, "At least one building data input must be provided"
 
     def _get_address_data(self, address: str) -> gpd.GeoDataFrame:
-        building_data, neighbourhood = get_building_polygons_from_address(address, response_limit=25, search_box_size=50)
+        building_data, neighbourhood = get_building_polygons_from_address(
+            address,
+            response_limit=25,
+            search_box_size=50,
+            coverage_floodmap_path=self.coverage_floodmap_path,
+        )
         properties = building_data.pand.properties.model_dump()
         properties["neighbourhood"] = neighbourhood
         properties["verblijfsobjecten"] = building_data.verblijfsobjecten
@@ -221,6 +233,18 @@ class FloodmapInterface:
     def get_floodmap_dict(self) -> dict[int, str]:
         return self.available_floodmaps
 
+    def get_representative_floodmap_path(self) -> str:
+        if len(self.available_floodmaps) == 0:
+            raise ValueError("No floodmaps are configured for coverage validation.")
+
+        preferred_return_periods = [100000, 10000, 1000, 100, 10]
+        for return_period in preferred_return_periods:
+            if return_period in self.available_floodmaps:
+                return self.available_floodmaps[return_period]
+
+        first_key = sorted(self.available_floodmaps.keys())[0]
+        return self.available_floodmaps[first_key]
+
 @dataclass
 class DamageScannerInputs:
     building_inputs: list[BuildingDataInput]
@@ -233,9 +257,13 @@ class DamageScannerInterface:
         self.damage_scanner = None
         self.object_col = 'object_type' # this should be the name of the column in the building data that contains the object/landuse type, which is used to link to the damage curves
         self.damage_function_interface = DamageFunctionInterface()
-        self.building_data_interface = BuildingDataInterface(inputs.building_inputs, function_interface=self.damage_function_interface)
-        self.max_damage_interface = MaxDamageInterface(object_col=self.object_col)
         self.floodmap_interface = FloodmapInterface(override_floodmaps=inputs.override_floodmaps)
+        self.building_data_interface = BuildingDataInterface(
+            inputs.building_inputs,
+            function_interface=self.damage_function_interface,
+            coverage_floodmap_path=self.floodmap_interface.get_representative_floodmap_path(),
+        )
+        self.max_damage_interface = MaxDamageInterface(object_col=self.object_col)
 
     def _init_damage_scanner(self) -> DamageScanner:
         if self.damage_scanner is not None:

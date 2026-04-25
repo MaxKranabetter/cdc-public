@@ -1,6 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+from src.bag.get_building_polygon import AddressOutOfCoverageError
 from src.calc.damage_scanner_interface import (
     BuildingClassifierType,
     BuildingDataInput,
@@ -31,7 +32,7 @@ st.title("Damage Scanner Prototype")
 st.write("Enter an address, run the scanner, and inspect the estimated damages on the map below.")
 
 with st.form("damage_scanner_form"):
-    address = st.text_input("Address", value="Sterremosstraat 8, 1441 LT Purmerend")
+    address = st.text_input("Address", value="Science Park 608, 1098 XH Amsterdam, Netherlands")
     return_period = 100
     submitted = st.form_submit_button("Run scan")
 
@@ -39,6 +40,10 @@ if submitted:
     if not address.strip():
         st.error("Please enter an address.")
     else:
+        def _clear_results() -> None:
+            st.session_state.pop("ead", None)
+            st.session_state.pop("map_html", None)
+
         try:
             with st.spinner("Loading buildings and calculating damages..."):
                 visualiser = DamageVisualiser(_build_inputs(address), selected_return_period=return_period)
@@ -49,9 +54,11 @@ if submitted:
             st.session_state["map_html"] = _render_map_html(fmap)
             st.session_state["address"] = address
             st.session_state["return_period"] = return_period
+        except AddressOutOfCoverageError as exc:
+            _clear_results()
+            st.error(str(exc))
         except Exception as exc:
-            st.session_state.pop("ead", None)
-            st.session_state.pop("map_html", None)
+            _clear_results()
             st.error(f"Damage scan failed: {exc}")
 
 ead = st.session_state.get("ead")
