@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from src.ssm.models import Country, DamageModel, IntensityUnit, L1FunctionCategory, L3FunctionCategory, L2FunctionCategory, SSMFunction, SSMFunctionMetadata, SSMFunctionMethod, SSMFunctionScale, SSMFunctionType
+from src.ssm.models import Country, DamageLevel, DamageModel, IntensityUnit, L1FunctionCategory, L3FunctionCategory, L2FunctionCategory, SSMFunction, SSMFunctionMetadata, SSMFunctionMethod, SSMFunctionScale, SSMFunctionType
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SSM_FUNCTIONS_PATH = PROJECT_ROOT / "data" / "ssm" / "functies"
@@ -39,6 +39,8 @@ def _parse_function_metadata(row: pd.Series) -> SSMFunctionMetadata:
         model=_parse_enum(DamageModel, row["Model"]),
         country=_parse_enum(Country, row["Country"]),
         function_type=_parse_enum(SSMFunctionType, row["Function type"]),
+        damage_level=_parse_enum(DamageLevel, row["Level"]),
+        return_period_protection=int(row["Flood Protection Return Period"]) if not pd.isna(row["Flood Protection Return Period"]) else None,
         l1_category=_parse_enum(L1FunctionCategory, row["Category group"]),
         l2_categories=[parsed for cat, parsed in parsed_l2_cats if parsed is not None],
         l3_categories=[parsed for cat, parsed in parsed_l3_cats if parsed is not None],
@@ -49,7 +51,7 @@ def _parse_function_metadata(row: pd.Series) -> SSMFunctionMetadata:
     )
 
 def _parse_ssm_function_mapping(mapping_df: pd.DataFrame) -> dict[int, SSMFunctionMetadata]:
-    return {row["id"]: _parse_function_metadata(row) for _, row in mapping_df.iterrows()}
+    return {row["id"]: _parse_function_metadata(row) for _, row in mapping_df.iterrows() if str(row["Include"]).strip().lower() == "true"}
 
 def load_ssm_functions() -> dict[int, SSMFunctionMetadata]:
     mapping_df = _load_ssm_function_mapping()

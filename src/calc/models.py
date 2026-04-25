@@ -3,7 +3,6 @@ from enum import Enum
 
 import geopandas as gpd
 
-
 class BuildingClassifierType(Enum):
     BAG = "BAG"
 

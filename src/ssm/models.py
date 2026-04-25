@@ -29,6 +29,11 @@ class SSMFunctionType(Enum):
     CONTENT = "Content"
     INVENTORY = "Inventory"
 
+class DamageLevel(Enum):
+    LOW = "Low"
+    AVERAGE = "Average"
+    HIGH = "High"
+
 class L1FunctionCategory(Enum):
     RESIDENTIAL = "Residential"
     EMPLOYMENT = "Employment"
@@ -109,12 +114,10 @@ class SSMFunctionScale(Enum):
     NA = "NA"
 
 @dataclass
-class SSMFunctionMetadata:
-    id: int
+class DamageFunctionMetadata:
     name: str
     model: DamageModel
     country: Country
-    function_type: SSMFunctionType
     l1_category: L1FunctionCategory
     l2_categories: list[L2FunctionCategory]
     l3_categories: list[L3FunctionCategory]
@@ -122,6 +125,16 @@ class SSMFunctionMetadata:
     scale: SSMFunctionScale
     notes: str | None = None
     source_description: str | None = None
+
+@dataclass(kw_only=True)
+class DamageFunctionSetMetadata(DamageFunctionMetadata):
+    return_period_protection: int = 0
+    damage_level: DamageLevel = DamageLevel.AVERAGE
+
+@dataclass(kw_only=True)
+class SSMFunctionMetadata(DamageFunctionSetMetadata):
+    id: int
+    function_type: SSMFunctionType
 
 class IntensityUnit(Enum):
     DEPTH_METERS = "Depth (m)"

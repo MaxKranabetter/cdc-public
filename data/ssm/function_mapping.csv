@@ -1,464 +1,464 @@
-id,Name,Model,Country,Function type,Category group,Subcategory,Secondary Subcategory,Tertiary Subcategory,Description of category by source,Method,Scale,Notes
-0,"Landbouw, recreatie en stedelijk gebied functie",HIS-SSM,Netherlands,Combined,Multiple,Agriculture,,,,Combination,Micro,
-1,Gemalen functie,HIS-SSM,Netherlands,Combined,Infrastructure,Other,,,,Combination,Micro,
-2,Auto functie,HIS-SSM,Netherlands,Combined,Residential,Generic,,,,Combination,Micro,
-3,HIS-SSM: Roads,HIS-SSM,Netherlands,Combined,Infrastructure,Transportation,,,,Combination,Micro,
-4,Zuiveringsinstallatie functie,HIS-SSM,Netherlands,Combined,Infrastructure,Water,,,,Combination,Micro,
-5,HIS-SSM: Transport and Communication,HIS-SSM,Netherlands,Combined,Employment,Generic,,,,Combination,Micro,
-6,HIS-SSM: Companies,HIS-SSM,Netherlands,Combined,Employment,Generic,,,,Combination,Micro,
-7,Eengezinswoningen en boerderijen functie (opstal),HIS-SSM,Netherlands,Structure,Residential,Single-family;Agriculture,,,?,Combination,Micro,
-8,Eengezinswoningen en boerderijen functie (inboedel),HIS-SSM,Netherlands,Content,Residential,Single-family;Agriculture,,,?,Combination,Micro,
-9,Begane grond functie,HIS-SSM,Netherlands,Combined,Residential,Generic,,,,Combination,Micro,
-10,Eerste verdieping functie,HIS-SSM,Netherlands,Combined,Residential,Generic,,,,Combination,Micro,
-11,Hogere verdieping functie,HIS-SSM,Netherlands,Combined,Residential,Generic,,,,Combination,Micro,
-12,Rhine Atlas Housing - Structure,Rhine Atlas,Germany,Structure,Residential,Generic,,,,Combination,Meso,
-13,Rhine Atlas Housing - Content,Rhine Atlas,Germany,Content,Residential,Generic,,,,Combination,Meso,
-14,Rhine Atlas Companies - Structure,Rhine Atlas,Germany,Structure,Employment,Generic,,,,Combination,Meso,
-15,Rhine Atlas Companies - Content,Rhine Atlas,Germany,Content,Employment,Generic,,,,Combination,Meso,
-16,Rhine Atlas Infrastructure,Rhine Atlas,Germany,Combined,Infrastructure,Generic,,,,Combination,Meso,
-17,HAZUS: FIA 2 story family house - Structure,HAZUS-MH,United States,Structure,Residential,Single-family,Fully-detached,,"No further description given, since it is a US source I think it is safe to assume that this concerns almost exclusively fully detached homes",Observations,Micro,
-18,HAZUS: FIA 2 story family house - Content,HAZUS-MH,United States,Content,Residential,Single-family,Fully-detached,,"No further description given, since it is a US source I think it is safe to assume that this concerns almost exclusively fully detached homes",Observations,Micro,
-19,HAZUS: FIA 1 story family house - Structure,HAZUS-MH,United States,Structure,Residential,Single-family,Fully-detached,,"No further description given, since it is a US source I think it is safe to assume that this concerns almost exclusively fully detached homes",Observations,Micro,
-20,HAZUS: FIA 1 story family house - Content,HAZUS-MH,United States,Content,Residential,Single-family,Fully-detached,,"No further description given, since it is a US source I think it is safe to assume that this concerns almost exclusively fully detached homes",Observations,Micro,
-21,HAZUS: FIA 3 story family house - Structure,HAZUS-MH,United States,Structure,Residential,Single-family,Fully-detached,,"No further description given, since it is a US source I think it is safe to assume that this concerns almost exclusively fully detached homes",Observations,Micro,
-22,HAZUS: FIA 3 story family house - Content,HAZUS-MH,United States,Content,Residential,Single-family,Fully-detached,,"No further description given, since it is a US source I think it is safe to assume that this concerns almost exclusively fully detached homes",Observations,Micro,
-23,HAZUS: Com5 Mid rise Banks no basement - Structure,HAZUS-MH,United States,Structure,Employment,Commercial,Bank,,,Combination,Micro,
-24,HAZUS: Com5 Mid rise Banks no basement - Content,HAZUS-MH,United States,Content,Employment,Commercial,Bank,,,Combination,Micro,
-25,HAZUS: IND2 Light industry average low rise - Structure,HAZUS-MH,United States,Structure,Employment,Industrial,,,,Combination,Micro,
-26,HAZUS: IND2 Light industry average low rise content,HAZUS-MH,United States,Content,Employment,Industrial,,,,Combination,Micro,
-27,HAZUS: Gov1  Average Government - Structure,HAZUS-MH,United States,Structure,Employment,Office,,,,Combination,Micro,
-28,HAZUS: Gov1 - Average Government - Content,HAZUS-MH,United States,Content,Employment,Office,,,,Combination,Micro,
-29,HAZUS: Com6 Hospital standard  - Structure,HAZUS-MH,United States,Structure,Employment,Hospital,,,,Combination,Micro,
-30,HAZUS: Com6 Hospital standard  - Content,HAZUS-MH,United States,Content,Employment,Hospital,,,,Combination,Micro,
-31,HAZUS: Com1 Retail Trade Average  - Structure,HAZUS-MH,United States,Structure,Employment,Commercial,,,,Combination,Micro,
-32,HAZUS: Com1 Retail Trade Average  - Content,HAZUS-MH,United States,Content,Employment,Commercial,,,,Combination,Micro,
-33,MCM: High street shop  (average) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-34,MCM: High street shop  (low) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-35,MCM: High street shop  (high) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-36,MCM: High street shop  (average) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-37,MCM: High street shop  (low) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-38,MCM: High street shop  (high) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-39,MCM: Hyperstore (average) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-40,MCM: Hyperstore (low) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-41,MCM: Hyperstore (high) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-42,MCM: Hyperstore (average) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-43,MCM: Hyperstore (low) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-44,MCM: Hyperstore (high) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-45,MCM: Retail Warehouse (average) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-46,MCM: Retail Warehouse (low) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-47,MCM: Retail Warehouse (high) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-48,MCM: Retail Warehouse (average) - content,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-49,MCM: Retail Warehouse (low) - content,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-50,MCM: Retail Warehouse (high) - content,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-51,"MCM: Garage, vehicle repair (average) - structure",MCM,United Kingdom,Structure,Employment,Industrial,,,,Expert calculation,Micro,
-52,"MCM: Garage, vehicle repair (low) - structure",MCM,United Kingdom,Structure,Employment,Industrial,,,,Expert calculation,Micro,
-53,"MCM: Garage, vehicle repair (high) - structure",MCM,United Kingdom,Structure,Employment,Industrial,,,,Expert calculation,Micro,
-54,"MCM: Garage, vehicle repair (average) - content",MCM,United Kingdom,Content,Employment,Industrial,,,,Expert calculation,Micro,
-55,"MCM: Garage, vehicle repair (low) - content",MCM,United Kingdom,Content,Employment,Industrial,,,,Expert calculation,Micro,
-56,"MCM: Garage, vehicle repair (high) - content",MCM,United Kingdom,Content,Employment,Industrial,,,,Expert calculation,Micro,
-57,MCM: Filling station (average) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-58,MCM: Filling station (low) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-59,MCM: Filling station (high) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-60,MCM: Filling station (average) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-61,MCM: Filling station (low) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-62,MCM: Filling station (high) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-63,MCM: Car showroom (average) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-64,MCM: Car showroom (low) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-65,MCM: Car showroom (high) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-66,MCM: Car showroom (average) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-67,MCM: Car showroom (low) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-68,MCM: Car showroom (high) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-69,MCM: Plant Hire (average) - structure,MCM,United Kingdom,Structure,Employment,Industrial,,,,Expert calculation,Micro,
-70,MCM: Plant Hire (low) - structure,MCM,United Kingdom,Structure,Employment,Industrial,,,,Expert calculation,Micro,
-71,MCM: Plant Hire (high) - structure,MCM,United Kingdom,Structure,Employment,Industrial,,,,Expert calculation,Micro,
-72,MCM: Plant Hire (average) - content,MCM,United Kingdom,Content,Employment,Industrial,,,,Expert calculation,Micro,
-73,MCM: Plant Hire (low) - content,MCM,United Kingdom,Content,Employment,Industrial,,,,Expert calculation,Micro,
-74,MCM: Plant Hire (high) - content,MCM,United Kingdom,Content,Employment,Industrial,,,,Expert calculation,Micro,
-75,MCM: Hair Salon - content,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-76,MCM: Hair Salon - structure,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-77,MCM: Public House/ club (average) - structure,MCM,United Kingdom,Structure,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
-78,MCM: Public House/ club (low) - structure,MCM,United Kingdom,Structure,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
-79,MCM: Public House/ club (high) - structure,MCM,United Kingdom,Structure,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
-80,MCM: Public House/ club (average) - content,MCM,United Kingdom,Content,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
-81,MCM: Public House/ club (low) - content,MCM,United Kingdom,Content,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
-82,MCM: Public House/ club (high) - content,MCM,United Kingdom,Content,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
-83,MCM: Restaurant (average) - structure,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-84,MCM: Restaurant(low) - structure,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-85,MCM: Restaurant (high) - structure,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-86,MCM: Restaurant(average) - content,MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-87,MCM: Restaurant (low) - content,MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-88,MCM: Restaurant (high) - content,MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-89,"MCM: Cafe, fast food (average) - structure",MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-90,"MCM: Cafe, fast food (low) - structure",MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-91,"MCM: Cafe, fast food  (high) - structure",MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-92,"MCM: Cafe, fast food (average) - content",MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-93,"MCM: Cafe, fast food  (low) - content",MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-94,"MCM: Cafe, fast food  (high) - content",MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-95,MCM: Garden Centre - content,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-96,MCM: Garden Centre - structure,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-97,"MCM: Office, non specific (average) - structure",MCM,United Kingdom,Structure,Employment,Office,,,,Expert calculation,Micro,
-98,"MCM: Office, non specific  (low) - structure",MCM,United Kingdom,Structure,Employment,Office,,,,Expert calculation,Micro,
-99,"MCM: Office, non specific  (high) - structure",MCM,United Kingdom,Structure,Employment,Office,,,,Expert calculation,Micro,
-100,"MCM: Office, non specific  (average) - content",MCM,United Kingdom,Content,Employment,Office,,,,Expert calculation,Micro,
-101,"MCM: Office, non specific   (low) - content",MCM,United Kingdom,Content,Employment,Office,,,,Expert calculation,Micro,
-102,"MCM: Office, non specific   (high) - content",MCM,United Kingdom,Content,Employment,Office,,,,Expert calculation,Micro,
-103,MCM: High tech office (average) - structure,MCM,United Kingdom,Structure,Employment,Office,,,,Expert calculation,Micro,
-104,MCM: High tech office  (low) - structure,MCM,United Kingdom,Structure,Employment,Office,,,,Expert calculation,Micro,
-105,MCM: High tech office  (high) - structure,MCM,United Kingdom,Structure,Employment,Office,,,,Expert calculation,Micro,
-106,MCM: High tech office  (average) - content,MCM,United Kingdom,Content,Employment,Office,,,,Expert calculation,Micro,
-107,MCM: High tech office  (low) - content,MCM,United Kingdom,Content,Employment,Office,,,,Expert calculation,Micro,
-108,MCM: High tech office   (high) - content,MCM,United Kingdom,Content,Employment,Office,,,,Expert calculation,Micro,
-109,MCM: Bank (average) - structure,MCM,United Kingdom,Structure,Employment,Commercial,Bank,,,Expert calculation,Micro,
-110,MCM: Bank  (low) - structure,MCM,United Kingdom,Structure,Employment,Commercial,Bank,,,Expert calculation,Micro,
-111,MCM: Bank  (high) - structure,MCM,United Kingdom,Structure,Employment,Commercial,Bank,,,Expert calculation,Micro,
-112,MCM: Bank  (average) - content,MCM,United Kingdom,Content,Employment,Commercial,Bank,,,Expert calculation,Micro,
-113,MCM: Bank  (low) - content,MCM,United Kingdom,Content,Employment,Commercial,Bank,,,Expert calculation,Micro,
-114,MCM: Bank   (high) - content,MCM,United Kingdom,Content,Employment,Commercial,Bank,,,Expert calculation,Micro,
-115,MCM: Warehouse (average) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-116,MCM: Warehouse  (low) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-117,MCM: Warehouse  (high) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-118,MCM: Warehouse  (average) - content,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-119,MCM: Warehouse  (low) - content,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-120,MCM: Warehouse   (high) - content,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-121,MCM: Electrical Warehouse (average) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-122,MCM: Electrical Warehouse  (low) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-123,MCM: Electrical Warehouse  (high) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-124,MCM: Electrical Warehouse  (average) - content,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-125,MCM: Electrical Warehouse  (low) - content,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-126,MCM: Electrical Warehouse   (high) - content,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-127,MCM: Non-frozen Warehouse (average) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-128,MCM: Non-frozen warehouse  (low) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-129,MCM: Non-frozen  Warehouse  (high) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-130,MCM: Non-frozen  Warehouse - content,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-131,MCM: frozen Warehouse (average) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-132,MCM: frozen warehouse  (low) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-133,MCM: frozen  Warehouse  (high) - structure,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-134,MCM: frozen  Warehouse - content,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
-135,MCM: Hotel (average) - structure,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-136,MCM: Hotel (low) - structure,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-137,MCM: Hotel  (high) - structure,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-138,MCM: Hotel - content,MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
-139,MCM: Movable caravan - structure,MCM,United Kingdom,Structure,Employment,Vehicle,,,,Expert calculation,Micro,
-140,MCM: Movable caravan - content,MCM,United Kingdom,Content,Employment,Vehicle,,,,Expert calculation,Micro,
-141,MCM: Fixed caravan - structure,MCM,United Kingdom,Structure,Employment,Vehicle,,,,Expert calculation,Micro,
-142,MCM: Fixed caravan - content,MCM,United Kingdom,Content,Employment,Vehicle,,,,Expert calculation,Micro,
-143,MCM: Theatre/Cinema (average) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-144,MCM: Theatre/Cinema  (low) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-145,MCM: Theatre/Cinema  (high) - structure,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
-146,MCM: Theatre/Cinema  (average) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-147,MCM: Theatre/Cinema  (low) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-148,MCM:Theatre/Cinema  (high) - content,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
-149,"MCM: Sport, leisure center (average) - structure",MCM,United Kingdom,Structure,Employment,Commercial,Sports & Recreation,,,Expert calculation,Micro,
-150,"MCM: Sport, leisure center   (low) - structure",MCM,United Kingdom,Structure,Employment,Commercial,Sports & Recreation,,,Expert calculation,Micro,
-151,"MCM: Sport, leisure center   (high) - structure",MCM,United Kingdom,Structure,Employment,Commercial,Sports & Recreation,,,Expert calculation,Micro,
-152,"MCM: Sport, leisure center   (average) - content",MCM,United Kingdom,Content,Employment,Commercial,Sports & Recreation,,,Expert calculation,Micro,
-153,"MCM: Sport, leisure center  (low) - content",MCM,United Kingdom,Content,Employment,Commercial,Sports & Recreation,,,Expert calculation,Micro,
-154,"MCM:Sport, leisure center   (high) - content",MCM,United Kingdom,Content,Employment,Commercial,Sports & Recreation,,,Expert calculation,Micro,
-155,"MCM: School, University (average) - structure",MCM,United Kingdom,Structure,Employment,Education,School,,,Expert calculation,Micro,
-156,"MCM: School, University (low) - structure",MCM,United Kingdom,Structure,Employment,Education,School,,,Expert calculation,Micro,
-157,"MCM: School, University (high) - structure",MCM,United Kingdom,Structure,Employment,Education,School,,,Expert calculation,Micro,
-158,"MCM: School, University (average) - content",MCM,United Kingdom,Content,Employment,Education,School,,,Expert calculation,Micro,
-159,"MCM: School, University (low) - content",MCM,United Kingdom,Content,Employment,Education,School,,,Expert calculation,Micro,
-160,"MCM: School, University (high) - content",MCM,United Kingdom,Content,Employment,Education,School,,,Expert calculation,Micro,
-161,MCM: Surgery - structure,MCM,United Kingdom,Structure,Employment,Other,,,,Expert calculation,Micro,
-162,MCM: Surgery - content,MCM,United Kingdom,Content,Employment,Other,,,,Expert calculation,Micro,
-163,MCM: Community Hall - structure,MCM,United Kingdom,Structure,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
-164,MCM: Community Hall - content,MCM,United Kingdom,Content,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
-165,MCM: Library (average) - structure,MCM,United Kingdom,Structure,Employment,Education,Library,,,Expert calculation,Micro,
-166,MCM: Library (low) - structure,MCM,United Kingdom,Structure,Employment,Education,Library,,,Expert calculation,Micro,
-167,MCM: Library (high) - structure,MCM,United Kingdom,Structure,Employment,Education,Library,,,Expert calculation,Micro,
-168,MCM: Library (average) - content,MCM,United Kingdom,Content,Employment,Education,Library,,,Expert calculation,Micro,
-169,MCM: Average house - structure,MCM,United Kingdom,Structure,Residential,Generic,,,,Expert calculation,Micro,"Translated from absolute function, max dam assumed to be EUR 130k (2013)"
-170,MCM: Average house - content,MCM,United Kingdom,Content,Residential,Generic,,,,Expert calculation,Micro,"Translated from absolute function, max dam assumed to be EUR 62k (2013)"
-171,FLEMOps: One Family house (average) - structure,FLEMOps,Germany,Structure,Residential,Single-family,Fully-detached,,,Observations,Micro,
-172,FLEMOps: One Family house (low) - structure,FLEMOps,Germany,Structure,Residential,Single-family,Fully-detached,,,Observations,Micro,
-173,FLEMOps: One Family house (high) - structure,FLEMOps,Germany,Structure,Residential,Single-family,Fully-detached,,,Observations,Micro,
-174,FLEMOps: One Family house (average) - content,FLEMOps,Germany,Content,Residential,Single-family,Fully-detached,,,Observations,Micro,
-175,FLEMOps: One Family house (low) - content,FLEMOps,Germany,Content,Residential,Single-family,Fully-detached,,,Observations,Micro,
-176,FLEMOps: One Family house (high) - content,FLEMOps,Germany,Content,Residential,Single-family,Fully-detached,,,Observations,Micro,
-177,FLEMOps: Terraced/semi detached house (average) - structure,FLEMOps,Germany,Structure,Residential,Terraced;Semi-detached,,,,Observations,Micro,
-178,FLEMOps: Terraced/semi detached house (low) - structure,FLEMOps,Germany,Structure,Residential,Terraced;Semi-detached,,,,Observations,Micro,
-179,FLEMOps: Terraced/semi detached house(high) - structure,FLEMOps,Germany,Structure,Residential,Terraced;Semi-detached,,,,Observations,Micro,
-180,FLEMOps: Terraced/semi detached house (average) - content,FLEMOps,Germany,Content,Residential,Terraced;Semi-detached,,,,Observations,Micro,
-181,FLEMOps: Terraced/semi detached house (low) - content,FLEMOps,Germany,Content,Residential,Terraced;Semi-detached,,,,Observations,Micro,
-182,FLEMOps: Terraced/semi detached house (high) - content,FLEMOps,Germany,Content,Residential,Terraced;Semi-detached,,,,Observations,Micro,
-183,FLEMOps: Appartment building (average) - structure,FLEMOps,Germany,Structure,Residential,Apartments,,,,Observations,Micro,
-184,FLEMOps:Appartment building (low) - structure,FLEMOps,Germany,Structure,Residential,Apartments,,,,Observations,Micro,
-185,FLEMOps: Appartment building(high) - structure,FLEMOps,Germany,Structure,Residential,Apartments,,,,Observations,Micro,
-186,FLEMOps: Appartment building (average) - content,FLEMOps,Germany,Content,Residential,Apartments,,,,Observations,Micro,
-187,FLEMOps: Appartment building(low) - content,FLEMOps,Germany,Content,Residential,Apartments,,,,Observations,Micro,
-188,FLEMOps: Appartment building (high) - content,FLEMOps,Germany,Content,Residential,Apartments,,,,Observations,Micro,
-189,FLEMOcs: Public/Private Services (large company) - Structure,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
-190,FLEMOcs: Public/Private Services (medium company) - Structure,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
-191,FLEMOcs: Public/Private Services (small company) - Structure,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
-192,FLEMOcs: Public/Private Services (large company) - content,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
-193,FLEMOcs: Public/Private Services (medium company) - content,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
-194,FLEMOcs: Public/Private Services (small company) - content,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
-195,FLEMOcs: Industry (large company) - Structure,FLEMOcs,Germany,Structure,Employment,Industrial,,,,Observations,Micro,
-196,FLEMOcs:Industry (medium company) - Structure,FLEMOcs,Germany,Structure,Employment,Industrial,,,,Observations,Micro,
-197,FLEMOcs: Industry (small company) - Structure,FLEMOcs,Germany,Structure,Employment,Industrial,,,,Observations,Micro,
-198,FLEMOcs: Industry (large company) - content,FLEMOcs,Germany,Content,Employment,Industrial,,,,Observations,Micro,
-199,FLEMOcs: Industry (medium company) - content,FLEMOcs,Germany,Content,Employment,Industrial,,,,Observations,Micro,
-200,FLEMOcs:Industry (small company) - content,FLEMOcs,Germany,Content,Employment,Industrial,,,,Observations,Micro,
-201,FLEMOcs: Corporate services (large company) - Structure,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
-202,FLEMOcs:Corporate services (medium company) - Structure,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
-203,FLEMOcs: Corporate services (small company) - Structure,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
-204,FLEMOcs: Corporate services (large company) - content,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
-205,FLEMOcs: Corporate services (medium company) - content,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
-206,FLEMOcs:Corporate services (small company) - content,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
-207,FLEMOcs: Trade (large company) - Structure,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
-208,FLEMOcs:Trade (medium company) - Structure,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
-209,FLEMOcs: Trade (small company) - Structure,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
-210,FLEMOcs: Trade (large company) - content,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
-211,FLEMOcs: Trade (medium company) - content,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
-212,FLEMOcs:Trade (small company) - content,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
-213,Dura Vermeer: Semi-Detached house - Structure,Billah,Netherlands,Structure,Residential,Semi-detached,,,,Expert calculation,Micro,"Translated from an absolute function, maximum damage HIS-SSM used."
-214,Dura Vermeer: Semi-Detached house - content,Billah,Netherlands,Content,Residential,Semi-detached,,,,Expert calculation,Micro,"Translated from an absolute function, maximum damage HIS-SSM used."
-215,Dura Vermeer: Terraced house - Structure,Billah,Netherlands,Structure,Residential,Terraced,,,,Expert calculation,Micro,"Translated from an absolute function, maximum damage HIS-SSM used."
-216,Dura Vermeer: Terrached house - content,Billah,Netherlands,Content,Residential,Terraced,,,,Expert calculation,Micro,"Translated from an absolute function, maximum damage HIS-SSM used."
-217,Tebodin (buitendijks): Food industry - structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-218,Tebodin (buitendijks): Food industry - content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-219,Tebodin (buitendijks): Food industry - inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-220,Tebodin (buitendijks): Oil industry - structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-221,Tebodin (buitendijks): Oil industry - content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-222,Tebodin (buitendijks): Oil industry - inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-223,Tebodin (buitendijks): Chemical industry - structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-224,Tebodin (buitendijks): Chemical industry - content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-225,Tebodin (buitendijks): Chemical industry - inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-226,Tebodin (buitendijks): Building material and glass industry - structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-227,Tebodin (buitendijks): Building material and glass industry - content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-228,Tebodin (buitendijks): Building material and glass industry - inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-229,Tebodin (buitendijks): Basic metal industry - structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-230,Tebodin (buitendijks): Basic metal industry - content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-231,Tebodin (buitendijks): Basic metal industry - inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-232,Tebodin (buitendijks): Metal product industry - structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-233,Tebodin (buitendijks): Metal product industry- content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-234,Tebodin (buitendijks): Metal product industry - inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-235,Tebodin (buitendijks): Machine industry - structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-236,Tebodin (buitendijks): Machine industry- content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-237,Tebodin (buitendijks): Machine industry - inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-238,Tebodin (buitendijks): Transport  industry - structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-239,Tebodin (buitendijks): Transport  industry- content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-240,Tebodin (buitendijks): Transport  industry - inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-241,Tebodin (buitendijks): Other industry - structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-242,Tebodin (buitendijks): Other industry - content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-243,Tebodin (buitendijks): Other industry - inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-244,Tebodin (buitendijks): Public Utilities - structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-245,Tebodin (buitendijks): Public Utilities  - content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-246,Tebodin (buitendijks): Waste treatment - structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-247,Tebodin (buitendijks): Waste treatment - content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-248,Tebodin (buitendijks): Tank storage - stucture,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-249,Tebodin (buitendijks): Tank storage - content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-250,Tebodin (buitendijks): Tank storage - inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-251,Tebodin (buitendijks): Container terminal  - structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-252,Tebodin (buitendijks): Container terminal  - content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-253,Tebodin (buitendijks): Container terminal  - inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-254,Tebodin (buitendijks): Cargo Handling - structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-255,Tebodin (buitendijks): Cargo Handling - content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-256,Tebodin (buitendijks): Cargo Handling - inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-257,Tebodin (buitendijks): Bulkterminals -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-258,Tebodin (buitendijks): Bulkterminals -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-259,Tebodin (buitendijks): Bulkterminals -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
-260,Tebodin: Food industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 15-16
-261,Tebodin: Food industry -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 15-16
-262,Tebodin: Food industry -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 15-16
-263,Tebodin: Textile industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 17-18
-264,Tebodin: Textile industry -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 17-18
-265,Tebodin: Textile industry -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 17-18
-266,Tebodin: Leather industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 19
-267,Tebodin: Leather industry -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 19
-268,Tebodin: Leather industry -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 19
-269,Tebodin: Wood industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 20
-270,Tebodin: Wood industry -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 20
-271,Tebodin: Wood industry -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 20
-272,Tebodin: Paper industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI:21
-273,Tebodin: Paper industry -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI:21
-274,Tebodin: Paper industry -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI:21
-275,Tebodin: Printing press -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 22
-276,Tebodin: Printing press  -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 22
-277,Tebodin: Printing press  -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 22
-278,Tebodin: Oil industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 23
-279,Tebodin: Oil industry  -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 23
-280,Tebodin: Oil industry  -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 23
-281,Tebodin: Chemical industry (bulk) -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI:24
-282,Tebodin:  Chemical industry (bulk) -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI:24
-283,Tebodin:  Chemical industry (bulk)  -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI:24
-284,Tebodin: Chemical industry (fine) -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI:24
-285,Tebodin:  Chemical industry (fine) -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI:24
-286,Tebodin:  Chemical industry (fine)  -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI:24
-287,Tebodin: Ruber and plastic products industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 25
-288,Tebodin:  Ruber and plastic products industry -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 25
-289,Tebodin:  Ruber and plastic products industry  -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 25
-290,"Tebodin: Glass, pottery, lime products industry  -structure",Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 26
-291,"Tebodin: Glass, pottery, lime products industry  -content",Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 26
-292,"Tebodin:  Glass, pottery, lime products industry  -inventory",Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 26
-293,Tebodin: Basic metal industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 27
-294,Tebodin:  Basic metal industry -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 27
-295,Tebodin:  Basic metal industry  -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 27
-296,Tebodin:Metal product industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 28
-297,Tebodin:  Metal product industry  -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 28
-298,Tebodin:  Metal product industry   -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 28
-299,Tebodin:Machine industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 29
-300,Tebodin:  Machine industry  -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 29
-301,Tebodin:  Machine industry   -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 29
-302,Tebodin: Computer industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 30
-303,Tebodin:  Computer industry   -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 30
-304,Tebodin:  Computer industry   -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 30
-305,Tebodin: Other electronical industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 31 -33
-306,Tebodin: Other electronical industry -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 31 -33
-307,Tebodin: Other electronical industry -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 31 -33
-308,Tebodin: Transport industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 34 - 35
-309,Tebodin: Transport industry -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 34 - 35
-310,Tebodin: Transport industry -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 34 - 35
-311,Tebodin: Furniture industry -structure,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 36
-312,Tebodin: Furniture industry -content,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 36
-313,Tebodin: Furniture industry -inventory,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 36
-314,Tebodin: Average industry combined,Custom,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-315,Tebodin: Average industry structure,Custom,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,
-316,Tebodin: Average industry content,Custom,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,
-317,Tebodin: Average industry inventory,Custom,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,
-318,1953: Agriculture - content,1953,Netherlands,Content,Employment,Agriculture,,,,Observations,NA,
-319,1953: Companies - structure,1953,Netherlands,Structure,Employment,Commercial,,,,Observations,NA,
-320,1953: Companies - content,1953,Netherlands,Content,Employment,Commercial,,,,Observations,NA,
-321,1953: Companies - inventory,1953,Netherlands,Inventory,Employment,Commercial,,,,Observations,NA,
-322,1953: Housing - structure,1953,Netherlands,Structure,Residential,Generic,,,,Observations,NA,
-323,1953: Housing - content,1953,Netherlands,Content,Residential,Generic,,,,Observations,NA,
-324,1953: Companies combined,Custom,Netherlands,Combined,Employment,Commercial,,,,Expert calculation,NA,
-325,Average all company functions,Custom,Multiple,Combined,Residential,Generic,,,,Expert calculation,NA,
-326,Average all company functions corrected,Custom,Multiple,Combined,Residential,Generic,,,,Expert calculation,NA,MCM functions have a weight of 0.1 and Tebodin is left out
-327,Weighted average HAZUS and FLEMO industry,Custom,Multiple,Combined,Employment,Industrial,,,,Expert calculation,NA,
-328,FLEMO: Average industry combined,custom,Germany,Combined,Employment,Industrial,,,,Expert calculation,NA,
-329,Average all housing content functions,custom,Multiple,Content,Residential,Generic,,,,Expert calculation,NA,
-330,Average all housing structure functions,custom,Multiple,Structure,Residential,Generic,,,,Expert calculation,NA,
-331,First flood house - combined,custom,Netherlands,Combined,Residential,Generic,,,,Expert calculation,Micro,
-332,High rise building - combined,custom,Netherlands,Combined,Residential,Generic,,,,Expert calculation,Micro,
-333,Car,HAZUS-MH,United States,Combined,Residential,Vehicle,,,,Expert calculation,Micro,
-334,Light truck,HAZUS-MH,United States,Combined,Residential,Vehicle,,,,Expert calculation,Micro,
-335,Heavy truck,HAZUS-MH,United States,Combined,Residential,Vehicle,,,,Expert calculation,Micro,
-336,"HAZUS, MCM and FLEMO offices",Custom,Multiple,Combined,Employment,Office,,,,Expert calculation,Micro,
-337,"HAZUS, MCM and FLEMO Stores",Custom,Multiple,Combined,Employment,Commercial,,,,Expert calculation,Micro,
-338,"HAZUS, FLEMO and Tebodin Industry",Custom,Multiple,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-339,Average all none industry company functions,Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,Micro,
-340,Tebodin: Food industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-341,Tebodin: Textile industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-342,Tebodin: Leather industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-343,Tebodin: Wood industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-344,Tebodin: Paper industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-345,Tebodin: Printing press -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-346,Tebodin: Oil industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-347,Tebodin: Chemical industry (bulk) -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-348,Tebodin: Chemical industry (fine) -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-349,Tebodin: Ruber and plastic products industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-350,Tebodin: building material industry  -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-351,Tebodin: Basic metal industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-352,Tebodin:Metal product industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-353,Tebodin:Machine industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-354,Tebodin: Computer industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-355,Tebodin: Other electronical industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-356,Tebodin: Transport industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-357,Tebodin: Furniture industry -combined,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-358,"Tebodin weighted average rough (metal, oil, building)",Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-359,Teboding weighted average fine,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
-360,FIAT proposed company functions (without industry) - option 1,Custom,Netherlands,Combined,Employment,Generic,,,,Expert calculation,Micro,
-361,FIAT proposed company functions (without industry) - option 0,Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,Micro,
-362,FIAT proposed company functions (without industry) - option 2,Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,Micro,
-363,FIAT proposed company functions (without industry) - option 3,Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,Micro,
-364,Tebodin average scaled to 1,Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,Micro,
-365,Theoretisch correcte opschaling,Custom,Multiple,Combined,Employment,Other,,,,Expert calculation,Micro,
-366,FIAT proposed company function (without industry) option 4,Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,Micro,
-367,Bedrijfsuitval functie,Custom,Multiple,Combined,Employment,Other,,,,Expert calculation,Micro,
-368,Tebodin: Food industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-369,Tebodin: Textile industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-370,Tebodin: Leather industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-371,Tebodin: Wood industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-372,Tebodin: Paper industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-373,Tebodin: Printing press -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-374,Tebodin: Oil industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-375,Tebodin: Chemical industry (bulk) -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-376,Tebodin: Chemical industry (fine) -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-377,Tebodin: Ruber and plastic products industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-378,Tebodin: building material industry  -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-379,Tebodin: Basic metal industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-380,Tebodin:Metal product industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-381,Tebodin:Machine industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-382,Tebodin: Computer industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-383,Tebodin: Other electronical industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-384,Tebodin: Transport industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-385,Tebodin: Furniture industry -combined (scaled to 1),Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-386,MCM average companies function (wo industry),Custom,United Kingdom,Combined,Employment,Generic,,,,Expert calculation,,
-387,HAZUS average companies function (wo industry),Custom,United States,Combined,Employment,Generic,,,,Expert calculation,,
-388,Rhine Atlas average companies function,Custom,Germany,Combined,Employment,Generic,,,,Expert calculation,,
-389,FLEMOcs average companies function (wo industry),Custom,Germany,Combined,Employment,Generic,,,,Expert calculation,,
-390,Average all companies (with HIS-SSM),Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,,
-391,Kantoorfunctie,FIAT,Netherlands,Combined,Employment,Office,,,,Expert calculation,,
-392,Winkelfunctie,FIAT,Netherlands,Combined,Employment,Commercial,,,,Expert calculation,,
-393,Industriefunctie,FIAT,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
-394,HIS-SSM: Family houses - Combined,HIS-SSM,Netherlands,Combined,Residential,Single-family,,,,Combination,,
-395,FIAT: first floor apartment - Combined,FIAT,Netherlands,Combined,Residential,Apartments,,,no damage before 2.5m water levels,Combination,,
-396,FIAT: higher floor apartment - Combined,FIAT,Netherlands,Combined,Residential,Apartments,,,no damage before 5m water levels,Combination,,
-397,SSM2015:1/10 y - Single Family - Structure,FIAT,Netherlands,Structure,Residential,Single-family,Semi-detached;Terraced,,"bungalow, cottage, semi-detached, terraced house, town house, villa, trailers, unknown (""Daarom werd besloten om de categorie eengezinswoningen te definiëren als
+id,Name,Include,Level,Flood Protection Return Period,Model,Country,Function type,Category group,Subcategory,Secondary Subcategory,Tertiary Subcategory,Description of category by source,Method,Scale,Notes
+0,"Landbouw, recreatie en stedelijk gebied functie",TRUE,Average,0,HIS-SSM,Netherlands,Combined,Multiple,Agriculture,,,,Combination,Micro,
+1,Gemalen functie,TRUE,Average,0,HIS-SSM,Netherlands,Combined,Infrastructure,Other,,,,Combination,Micro,
+2,Auto functie,TRUE,Average,0,HIS-SSM,Netherlands,Combined,Residential,Generic,,,,Combination,Micro,
+3,HIS-SSM: Roads,TRUE,Average,0,HIS-SSM,Netherlands,Combined,Infrastructure,Transportation,,,,Combination,Micro,
+4,Zuiveringsinstallatie functie,TRUE,Average,0,HIS-SSM,Netherlands,Combined,Infrastructure,Water,,,,Combination,Micro,
+5,HIS-SSM: Transport and Communication,TRUE,Average,0,HIS-SSM,Netherlands,Combined,Employment,Generic,,,,Combination,Micro,
+6,HIS-SSM: Companies,TRUE,Average,0,HIS-SSM,Netherlands,Combined,Employment,Generic,,,,Combination,Micro,
+7,Eengezinswoningen en boerderijen functie,TRUE,Average,0,HIS-SSM,Netherlands,Structure,Residential,Single-family;Agriculture,,,?,Combination,Micro,
+8,Eengezinswoningen en boerderijen functie,TRUE,Average,0,HIS-SSM,Netherlands,Content,Residential,Single-family;Agriculture,,,?,Combination,Micro,
+9,Begane grond functie,TRUE,Average,0,HIS-SSM,Netherlands,Combined,Residential,Generic,,,,Combination,Micro,
+10,Eerste verdieping functie,TRUE,Average,0,HIS-SSM,Netherlands,Combined,Residential,Generic,,,,Combination,Micro,
+11,Hogere verdieping functie,TRUE,Average,0,HIS-SSM,Netherlands,Combined,Residential,Generic,,,,Combination,Micro,
+12,Rhine Atlas Housing,TRUE,Average,0,Rhine Atlas,Germany,Structure,Residential,Generic,,,,Combination,Meso,
+13,Rhine Atlas Housing,TRUE,Average,0,Rhine Atlas,Germany,Content,Residential,Generic,,,,Combination,Meso,
+14,Rhine Atlas Companies,TRUE,Average,0,Rhine Atlas,Germany,Structure,Employment,Generic,,,,Combination,Meso,
+15,Rhine Atlas Companies,TRUE,Average,0,Rhine Atlas,Germany,Content,Employment,Generic,,,,Combination,Meso,
+16,Rhine Atlas Infrastructure,TRUE,Average,0,Rhine Atlas,Germany,Combined,Infrastructure,Generic,,,,Combination,Meso,
+17,HAZUS: FIA 2 story family house,TRUE,Average,0,HAZUS-MH,United States,Structure,Residential,Single-family,Fully-detached,,"No further description given, since it is a US source I think it is safe to assume that this concerns almost exclusively fully detached homes",Observations,Micro,
+18,HAZUS: FIA 2 story family house,TRUE,Average,0,HAZUS-MH,United States,Content,Residential,Single-family,Fully-detached,,"No further description given, since it is a US source I think it is safe to assume that this concerns almost exclusively fully detached homes",Observations,Micro,
+19,HAZUS: FIA 1 story family house,TRUE,Average,0,HAZUS-MH,United States,Structure,Residential,Single-family,Fully-detached,,"No further description given, since it is a US source I think it is safe to assume that this concerns almost exclusively fully detached homes",Observations,Micro,
+20,HAZUS: FIA 1 story family house,TRUE,Average,0,HAZUS-MH,United States,Content,Residential,Single-family,Fully-detached,,"No further description given, since it is a US source I think it is safe to assume that this concerns almost exclusively fully detached homes",Observations,Micro,
+21,HAZUS: FIA 3 story family house,TRUE,Average,0,HAZUS-MH,United States,Structure,Residential,Single-family,Fully-detached,,"No further description given, since it is a US source I think it is safe to assume that this concerns almost exclusively fully detached homes",Observations,Micro,
+22,HAZUS: FIA 3 story family house,TRUE,Average,0,HAZUS-MH,United States,Content,Residential,Single-family,Fully-detached,,"No further description given, since it is a US source I think it is safe to assume that this concerns almost exclusively fully detached homes",Observations,Micro,
+23,HAZUS: Com5 Mid rise Banks no basement,TRUE,Average,0,HAZUS-MH,United States,Structure,Employment,Commercial,Bank,,,Combination,Micro,
+24,HAZUS: Com5 Mid rise Banks no basement,TRUE,Average,0,HAZUS-MH,United States,Content,Employment,Commercial,Bank,,,Combination,Micro,
+25,HAZUS: IND2 Light industry average low rise,TRUE,Average,0,HAZUS-MH,United States,Structure,Employment,Industrial,,,,Combination,Micro,
+26,HAZUS: IND2 Light industry average low rise,TRUE,Average,0,HAZUS-MH,United States,Content,Employment,Industrial,,,,Combination,Micro,
+27,HAZUS: Gov1 Average Government,TRUE,Average,0,HAZUS-MH,United States,Structure,Employment,Office,,,,Combination,Micro,
+28,HAZUS: Gov1 - Average Government,TRUE,Average,0,HAZUS-MH,United States,Content,Employment,Office,,,,Combination,Micro,
+29,HAZUS: Com6 Hospital standard,TRUE,Average,0,HAZUS-MH,United States,Structure,Employment,Hospital,,,,Combination,Micro,
+30,HAZUS: Com6 Hospital standard,TRUE,Average,0,HAZUS-MH,United States,Content,Employment,Hospital,,,,Combination,Micro,
+31,HAZUS: Com1 Retail Trade Average,TRUE,Average,0,HAZUS-MH,United States,Structure,Employment,Commercial,,,,Combination,Micro,
+32,HAZUS: Com1 Retail Trade Average,TRUE,Average,0,HAZUS-MH,United States,Content,Employment,Commercial,,,,Combination,Micro,
+33,MCM: High street shop,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+34,MCM: High street shop,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+35,MCM: High street shop,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+36,MCM: High street shop,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+37,MCM: High street shop,TRUE,Low,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+38,MCM: High street shop,TRUE,High,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+39,MCM: Hyperstore,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+40,MCM: Hyperstore,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+41,MCM: Hyperstore,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+42,MCM: Hyperstore,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+43,MCM: Hyperstore,TRUE,Low,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+44,MCM: Hyperstore,TRUE,High,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+45,MCM: Retail Warehouse,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+46,MCM: Retail Warehouse,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+47,MCM: Retail Warehouse,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+48,MCM: Retail Warehouse,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+49,MCM: Retail Warehouse,TRUE,Low,0,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+50,MCM: Retail Warehouse,TRUE,High,0,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+51,"MCM: Garage, vehicle repair",TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Industrial,,,,Expert calculation,Micro,
+52,"MCM: Garage, vehicle repair",TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Industrial,,,,Expert calculation,Micro,
+53,"MCM: Garage, vehicle repair",TRUE,High,0,MCM,United Kingdom,Structure,Employment,Industrial,,,,Expert calculation,Micro,
+54,"MCM: Garage, vehicle repair",TRUE,Average,0,MCM,United Kingdom,Content,Employment,Industrial,,,,Expert calculation,Micro,
+55,"MCM: Garage, vehicle repair",TRUE,Low,0,MCM,United Kingdom,Content,Employment,Industrial,,,,Expert calculation,Micro,
+56,"MCM: Garage, vehicle repair",TRUE,High,0,MCM,United Kingdom,Content,Employment,Industrial,,,,Expert calculation,Micro,
+57,MCM: Filling station,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+58,MCM: Filling station,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+59,MCM: Filling station,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+60,MCM: Filling station,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+61,MCM: Filling station,TRUE,Low,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+62,MCM: Filling station,TRUE,High,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+63,MCM: Car showroom,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+64,MCM: Car showroom,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+65,MCM: Car showroom,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+66,MCM: Car showroom,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+67,MCM: Car showroom,TRUE,Low,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+68,MCM: Car showroom,TRUE,High,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+69,MCM: Plant Hire,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Industrial,,,,Expert calculation,Micro,
+70,MCM: Plant Hire,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Industrial,,,,Expert calculation,Micro,
+71,MCM: Plant Hire,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Industrial,,,,Expert calculation,Micro,
+72,MCM: Plant Hire,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Industrial,,,,Expert calculation,Micro,
+73,MCM: Plant Hire,TRUE,Low,0,MCM,United Kingdom,Content,Employment,Industrial,,,,Expert calculation,Micro,
+74,MCM: Plant Hire,TRUE,High,0,MCM,United Kingdom,Content,Employment,Industrial,,,,Expert calculation,Micro,
+75,MCM: Hair Salon,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+76,MCM: Hair Salon,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+77,MCM: Public House/ club,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
+78,MCM: Public House/ club,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
+79,MCM: Public House/ club,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
+80,MCM: Public House/ club,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
+81,MCM: Public House/ club,TRUE,Low,0,MCM,United Kingdom,Content,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
+82,MCM: Public House/ club,TRUE,High,0,MCM,United Kingdom,Content,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
+83,MCM: Restaurant,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+84,MCM: Restaurant,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+85,MCM: Restaurant,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+86,MCM: Restaurant,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+87,MCM: Restaurant,TRUE,Low,0,MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+88,MCM: Restaurant,TRUE,High,0,MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+89,"MCM: Cafe, fast food",TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+90,"MCM: Cafe, fast food",TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+91,"MCM: Cafe, fast food",TRUE,High,0,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+92,"MCM: Cafe, fast food",TRUE,Average,0,MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+93,"MCM: Cafe, fast food",TRUE,Low,0,MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+94,"MCM: Cafe, fast food",TRUE,High,0,MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+95,MCM: Garden Centre,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+96,MCM: Garden Centre,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+97,"MCM: Office, non specific",TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Office,,,,Expert calculation,Micro,
+98,"MCM: Office, non specific",TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Office,,,,Expert calculation,Micro,
+99,"MCM: Office, non specific",TRUE,High,0,MCM,United Kingdom,Structure,Employment,Office,,,,Expert calculation,Micro,
+100,"MCM: Office, non specific",TRUE,Average,0,MCM,United Kingdom,Content,Employment,Office,,,,Expert calculation,Micro,
+101,"MCM: Office, non specific",TRUE,Low,0,MCM,United Kingdom,Content,Employment,Office,,,,Expert calculation,Micro,
+102,"MCM: Office, non specific",TRUE,High,0,MCM,United Kingdom,Content,Employment,Office,,,,Expert calculation,Micro,
+103,MCM: High tech office,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Office,,,,Expert calculation,Micro,
+104,MCM: High tech office,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Office,,,,Expert calculation,Micro,
+105,MCM: High tech office,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Office,,,,Expert calculation,Micro,
+106,MCM: High tech office,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Office,,,,Expert calculation,Micro,
+107,MCM: High tech office,TRUE,Low,0,MCM,United Kingdom,Content,Employment,Office,,,,Expert calculation,Micro,
+108,MCM: High tech office,TRUE,High,0,MCM,United Kingdom,Content,Employment,Office,,,,Expert calculation,Micro,
+109,MCM: Bank,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Commercial,Bank,,,Expert calculation,Micro,
+110,MCM: Bank,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Commercial,Bank,,,Expert calculation,Micro,
+111,MCM: Bank,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Commercial,Bank,,,Expert calculation,Micro,
+112,MCM: Bank,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Commercial,Bank,,,Expert calculation,Micro,
+113,MCM: Bank,TRUE,Low,0,MCM,United Kingdom,Content,Employment,Commercial,Bank,,,Expert calculation,Micro,
+114,MCM: Bank,TRUE,High,0,MCM,United Kingdom,Content,Employment,Commercial,Bank,,,Expert calculation,Micro,
+115,MCM: Warehouse,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+116,MCM: Warehouse,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+117,MCM: Warehouse,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+118,MCM: Warehouse,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+119,MCM: Warehouse,TRUE,Low,0,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+120,MCM: Warehouse,TRUE,High,0,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+121,MCM: Electrical Warehouse,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+122,MCM: Electrical Warehouse,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+123,MCM: Electrical Warehouse,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+124,MCM: Electrical Warehouse,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+125,MCM: Electrical Warehouse,TRUE,Low,0,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+126,MCM: Electrical Warehouse,TRUE,High,0,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+127,MCM: Non-frozen Warehouse,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+128,MCM: Non-frozen warehouse,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+129,MCM: Non-frozen Warehouse,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+130,MCM: Non-frozen Warehouse,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+131,MCM: frozen Warehouse,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+132,MCM: frozen warehouse,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+133,MCM: frozen Warehouse,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+134,MCM: frozen Warehouse,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Industrial,Warehouse,,,Expert calculation,Micro,
+135,MCM: Hotel,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+136,MCM: Hotel,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+137,MCM: Hotel,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+138,MCM: Hotel,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Commercial,Horeca,,,Expert calculation,Micro,
+139,MCM: Movable caravan,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Vehicle,,,,Expert calculation,Micro,
+140,MCM: Movable caravan,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Vehicle,,,,Expert calculation,Micro,
+141,MCM: Fixed caravan,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Vehicle,,,,Expert calculation,Micro,
+142,MCM: Fixed caravan,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Vehicle,,,,Expert calculation,Micro,
+143,MCM: Theatre/Cinema,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+144,MCM: Theatre/Cinema,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+145,MCM: Theatre/Cinema,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Commercial,,,,Expert calculation,Micro,
+146,MCM: Theatre/Cinema,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+147,MCM: Theatre/Cinema,TRUE,Low,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+148,MCM: Theatre/Cinema,TRUE,High,0,MCM,United Kingdom,Content,Employment,Commercial,,,,Expert calculation,Micro,
+149,"MCM: Sport, leisure center",TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Commercial,Sports & Recreation,,,Expert calculation,Micro,
+150,"MCM: Sport, leisure center",TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Commercial,Sports & Recreation,,,Expert calculation,Micro,
+151,"MCM: Sport, leisure center",TRUE,High,0,MCM,United Kingdom,Structure,Employment,Commercial,Sports & Recreation,,,Expert calculation,Micro,
+152,"MCM: Sport, leisure center",TRUE,Average,0,MCM,United Kingdom,Content,Employment,Commercial,Sports & Recreation,,,Expert calculation,Micro,
+153,"MCM: Sport, leisure center",TRUE,Low,0,MCM,United Kingdom,Content,Employment,Commercial,Sports & Recreation,,,Expert calculation,Micro,
+154,"MCM: Sport, leisure center",TRUE,High,0,MCM,United Kingdom,Content,Employment,Commercial,Sports & Recreation,,,Expert calculation,Micro,
+155,"MCM: School, University",TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Education,School,,,Expert calculation,Micro,
+156,"MCM: School, University",TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Education,School,,,Expert calculation,Micro,
+157,"MCM: School, University",TRUE,High,0,MCM,United Kingdom,Structure,Employment,Education,School,,,Expert calculation,Micro,
+158,"MCM: School, University",TRUE,Average,0,MCM,United Kingdom,Content,Employment,Education,School,,,Expert calculation,Micro,
+159,"MCM: School, University",TRUE,Low,0,MCM,United Kingdom,Content,Employment,Education,School,,,Expert calculation,Micro,
+160,"MCM: School, University",TRUE,High,0,MCM,United Kingdom,Content,Employment,Education,School,,,Expert calculation,Micro,
+161,MCM: Surgery,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Other,,,,Expert calculation,Micro,
+162,MCM: Surgery,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Other,,,,Expert calculation,Micro,
+163,MCM: Community Hall,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
+164,MCM: Community Hall,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Office,Social Infrastructure,,,Expert calculation,Micro,
+165,MCM: Library,TRUE,Average,0,MCM,United Kingdom,Structure,Employment,Education,Library,,,Expert calculation,Micro,
+166,MCM: Library,TRUE,Low,0,MCM,United Kingdom,Structure,Employment,Education,Library,,,Expert calculation,Micro,
+167,MCM: Library,TRUE,High,0,MCM,United Kingdom,Structure,Employment,Education,Library,,,Expert calculation,Micro,
+168,MCM: Library,TRUE,Average,0,MCM,United Kingdom,Content,Employment,Education,Library,,,Expert calculation,Micro,
+169,MCM: Average house,TRUE,Average,0,MCM,United Kingdom,Structure,Residential,Generic,,,,Expert calculation,Micro,"Translated from absolute function, max dam assumed to be EUR 130k (2013)"
+170,MCM: Average house,TRUE,Average,0,MCM,United Kingdom,Content,Residential,Generic,,,,Expert calculation,Micro,"Translated from absolute function, max dam assumed to be EUR 62k (2013)"
+171,FLEMOps: One Family house,TRUE,Average,0,FLEMOps,Germany,Structure,Residential,Single-family,Fully-detached,,,Observations,Micro,
+172,FLEMOps: One Family house,TRUE,Low,0,FLEMOps,Germany,Structure,Residential,Single-family,Fully-detached,,,Observations,Micro,
+173,FLEMOps: One Family house,TRUE,High,0,FLEMOps,Germany,Structure,Residential,Single-family,Fully-detached,,,Observations,Micro,
+174,FLEMOps: One Family house,TRUE,Average,0,FLEMOps,Germany,Content,Residential,Single-family,Fully-detached,,,Observations,Micro,
+175,FLEMOps: One Family house,TRUE,Low,0,FLEMOps,Germany,Content,Residential,Single-family,Fully-detached,,,Observations,Micro,
+176,FLEMOps: One Family house,TRUE,High,0,FLEMOps,Germany,Content,Residential,Single-family,Fully-detached,,,Observations,Micro,
+177,FLEMOps: Terraced/semi detached house,TRUE,Average,0,FLEMOps,Germany,Structure,Residential,Terraced;Semi-detached,,,,Observations,Micro,
+178,FLEMOps: Terraced/semi detached house,TRUE,Low,0,FLEMOps,Germany,Structure,Residential,Terraced;Semi-detached,,,,Observations,Micro,
+179,FLEMOps: Terraced/semi detached house,TRUE,High,0,FLEMOps,Germany,Structure,Residential,Terraced;Semi-detached,,,,Observations,Micro,
+180,FLEMOps: Terraced/semi detached house,TRUE,Average,0,FLEMOps,Germany,Content,Residential,Terraced;Semi-detached,,,,Observations,Micro,
+181,FLEMOps: Terraced/semi detached house,TRUE,Low,0,FLEMOps,Germany,Content,Residential,Terraced;Semi-detached,,,,Observations,Micro,
+182,FLEMOps: Terraced/semi detached house,TRUE,High,0,FLEMOps,Germany,Content,Residential,Terraced;Semi-detached,,,,Observations,Micro,
+183,FLEMOps: Appartment building,TRUE,Average,0,FLEMOps,Germany,Structure,Residential,Apartments,,,,Observations,Micro,
+184,FLEMOps: Appartment building,TRUE,Low,0,FLEMOps,Germany,Structure,Residential,Apartments,,,,Observations,Micro,
+185,FLEMOps: Appartment building,TRUE,High,0,FLEMOps,Germany,Structure,Residential,Apartments,,,,Observations,Micro,
+186,FLEMOps: Appartment building,TRUE,Average,0,FLEMOps,Germany,Content,Residential,Apartments,,,,Observations,Micro,
+187,FLEMOps: Appartment building,TRUE,Low,0,FLEMOps,Germany,Content,Residential,Apartments,,,,Observations,Micro,
+188,FLEMOps: Appartment building,TRUE,High,0,FLEMOps,Germany,Content,Residential,Apartments,,,,Observations,Micro,
+189,FLEMOcs: Public/Private Services,TRUE,High,0,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
+190,FLEMOcs: Public/Private Services,TRUE,Average,0,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
+191,FLEMOcs: Public/Private Services,TRUE,Low,0,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
+192,FLEMOcs: Public/Private Services,TRUE,High,0,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
+193,FLEMOcs: Public/Private Services,TRUE,Average,0,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
+194,FLEMOcs: Public/Private Services,TRUE,Low,0,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
+195,FLEMOcs: Industry,TRUE,High,0,FLEMOcs,Germany,Structure,Employment,Industrial,,,,Observations,Micro,
+196,FLEMOcs: Industry,TRUE,Average,0,FLEMOcs,Germany,Structure,Employment,Industrial,,,,Observations,Micro,
+197,FLEMOcs: Industry,TRUE,Low,0,FLEMOcs,Germany,Structure,Employment,Industrial,,,,Observations,Micro,
+198,FLEMOcs: Industry,TRUE,High,0,FLEMOcs,Germany,Content,Employment,Industrial,,,,Observations,Micro,
+199,FLEMOcs: Industry,TRUE,Average,0,FLEMOcs,Germany,Content,Employment,Industrial,,,,Observations,Micro,
+200,FLEMOcs: Industry,TRUE,Low,0,FLEMOcs,Germany,Content,Employment,Industrial,,,,Observations,Micro,
+201,FLEMOcs: Corporate services,TRUE,High,0,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
+202,FLEMOcs: Corporate services,TRUE,Average,0,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
+203,FLEMOcs: Corporate services,TRUE,Low,0,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
+204,FLEMOcs: Corporate services,TRUE,High,0,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
+205,FLEMOcs: Corporate services,TRUE,Average,0,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
+206,FLEMOcs: Corporate services,TRUE,Low,0,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
+207,FLEMOcs: Trade,TRUE,High,0,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
+208,FLEMOcs: Trade,TRUE,Average,0,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
+209,FLEMOcs: Trade,TRUE,Low,0,FLEMOcs,Germany,Structure,Employment,Office,,,,Observations,Micro,
+210,FLEMOcs: Trade,TRUE,High,0,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
+211,FLEMOcs: Trade,TRUE,Average,0,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
+212,FLEMOcs: Trade,TRUE,Low,0,FLEMOcs,Germany,Content,Employment,Office,,,,Observations,Micro,
+213,Dura Vermeer: Semi-Detached house,TRUE,Average,0,Billah,Netherlands,Structure,Residential,Semi-detached,,,,Expert calculation,Micro,"Translated from an absolute function, maximum damage HIS-SSM used."
+214,Dura Vermeer: Semi-Detached house,TRUE,Average,0,Billah,Netherlands,Content,Residential,Semi-detached,,,,Expert calculation,Micro,"Translated from an absolute function, maximum damage HIS-SSM used."
+215,Dura Vermeer: Terraced house,TRUE,Average,0,Billah,Netherlands,Structure,Residential,Terraced,,,,Expert calculation,Micro,"Translated from an absolute function, maximum damage HIS-SSM used."
+216,Dura Vermeer: Terrached house,TRUE,Average,0,Billah,Netherlands,Content,Residential,Terraced,,,,Expert calculation,Micro,"Translated from an absolute function, maximum damage HIS-SSM used."
+217,Tebodin (buitendijks): Food industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+218,Tebodin (buitendijks): Food industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+219,Tebodin (buitendijks): Food industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+220,Tebodin (buitendijks): Oil industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+221,Tebodin (buitendijks): Oil industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+222,Tebodin (buitendijks): Oil industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+223,Tebodin (buitendijks): Chemical industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+224,Tebodin (buitendijks): Chemical industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+225,Tebodin (buitendijks): Chemical industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+226,Tebodin (buitendijks): Building material and glass industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+227,Tebodin (buitendijks): Building material and glass industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+228,Tebodin (buitendijks): Building material and glass industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+229,Tebodin (buitendijks): Basic metal industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+230,Tebodin (buitendijks): Basic metal industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+231,Tebodin (buitendijks): Basic metal industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+232,Tebodin (buitendijks): Metal product industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+233,Tebodin (buitendijks): Metal product industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+234,Tebodin (buitendijks): Metal product industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+235,Tebodin (buitendijks): Machine industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+236,Tebodin (buitendijks): Machine industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+237,Tebodin (buitendijks): Machine industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+238,Tebodin (buitendijks): Transport industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+239,Tebodin (buitendijks): Transport industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+240,Tebodin (buitendijks): Transport industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+241,Tebodin (buitendijks): Other industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+242,Tebodin (buitendijks): Other industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+243,Tebodin (buitendijks): Other industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+244,Tebodin (buitendijks): Public Utilities,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+245,Tebodin (buitendijks): Public Utilities,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+246,Tebodin (buitendijks): Waste treatment,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+247,Tebodin (buitendijks): Waste treatment,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+248,Tebodin (buitendijks): Tank storage,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+249,Tebodin (buitendijks): Tank storage,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+250,Tebodin (buitendijks): Tank storage,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+251,Tebodin (buitendijks): Container terminal,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+252,Tebodin (buitendijks): Container terminal,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+253,Tebodin (buitendijks): Container terminal,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+254,Tebodin (buitendijks): Cargo Handling,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+255,Tebodin (buitendijks): Cargo Handling,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+256,Tebodin (buitendijks): Cargo Handling,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+257,Tebodin (buitendijks): Bulkterminals,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+258,Tebodin (buitendijks): Bulkterminals,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+259,Tebodin (buitendijks): Bulkterminals,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,Buitendijks
+260,Tebodin: Food industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 15-16
+261,Tebodin: Food industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 15-16
+262,Tebodin: Food industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 15-16
+263,Tebodin: Textile industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 17-18
+264,Tebodin: Textile industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 17-18
+265,Tebodin: Textile industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 17-18
+266,Tebodin: Leather industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 19
+267,Tebodin: Leather industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 19
+268,Tebodin: Leather industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 19
+269,Tebodin: Wood industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 20
+270,Tebodin: Wood industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 20
+271,Tebodin: Wood industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 20
+272,Tebodin: Paper industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI:21
+273,Tebodin: Paper industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI:21
+274,Tebodin: Paper industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI:21
+275,Tebodin: Printing press,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 22
+276,Tebodin: Printing press,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 22
+277,Tebodin: Printing press,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 22
+278,Tebodin: Oil industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 23
+279,Tebodin: Oil industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 23
+280,Tebodin: Oil industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 23
+281,Tebodin: Chemical industry (bulk),TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI:24
+282,Tebodin: Chemical industry (bulk),TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI:24
+283,Tebodin: Chemical industry (bulk),TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI:24
+284,Tebodin: Chemical industry (fine),TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI:24
+285,Tebodin: Chemical industry (fine),TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI:24
+286,Tebodin: Chemical industry (fine),TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI:24
+287,Tebodin: Ruber and plastic products industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 25
+288,Tebodin: Ruber and plastic products industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 25
+289,Tebodin: Ruber and plastic products industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 25
+290,"Tebodin: Glass, pottery, lime products industry",TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 26
+291,"Tebodin: Glass, pottery, lime products industry",TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 26
+292,"Tebodin: Glass, pottery, lime products industry",TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 26
+293,Tebodin: Basic metal industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 27
+294,Tebodin: Basic metal industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 27
+295,Tebodin: Basic metal industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 27
+296,Tebodin: Metal product industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 28
+297,Tebodin: Metal product industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 28
+298,Tebodin: Metal product industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 28
+299,Tebodin: Machine industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 29
+300,Tebodin: Machine industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 29
+301,Tebodin: Machine industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 29
+302,Tebodin: Computer industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 30
+303,Tebodin: Computer industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 30
+304,Tebodin: Computer industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 30
+305,Tebodin: Other electronical industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 31 -33
+306,Tebodin: Other electronical industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 31 -33
+307,Tebodin: Other electronical industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 31 -33
+308,Tebodin: Transport industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 34 - 35
+309,Tebodin: Transport industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 34 - 35
+310,Tebodin: Transport industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 34 - 35
+311,Tebodin: Furniture industry,TRUE,Average,0,Tebodin,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,SBI: 36
+312,Tebodin: Furniture industry,TRUE,Average,0,Tebodin,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,SBI: 36
+313,Tebodin: Furniture industry,TRUE,Average,0,Tebodin,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,SBI: 36
+314,Tebodin: Average industry combined,TRUE,Average,0,Custom,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+315,Tebodin: Average industry structure,TRUE,Average,0,Custom,Netherlands,Structure,Employment,Industrial,,,,Expert calculation,Micro,
+316,Tebodin: Average industry content,TRUE,Average,0,Custom,Netherlands,Content,Employment,Industrial,,,,Expert calculation,Micro,
+317,Tebodin: Average industry inventory,TRUE,Average,0,Custom,Netherlands,Inventory,Employment,Industrial,,,,Expert calculation,Micro,
+318,1953: Agriculture,TRUE,Average,0,1953,Netherlands,Content,Employment,Agriculture,,,,Observations,NA,
+319,1953: Companies,TRUE,Average,0,1953,Netherlands,Structure,Employment,Commercial,,,,Observations,NA,
+320,1953: Companies,TRUE,Average,0,1953,Netherlands,Content,Employment,Commercial,,,,Observations,NA,
+321,1953: Companies,TRUE,Average,0,1953,Netherlands,Inventory,Employment,Commercial,,,,Observations,NA,
+322,1953: Housing,TRUE,Average,0,1953,Netherlands,Structure,Residential,Generic,,,,Observations,NA,
+323,1953: Housing,TRUE,Average,0,1953,Netherlands,Content,Residential,Generic,,,,Observations,NA,
+324,1953: Companies combined,TRUE,Average,0,Custom,Netherlands,Combined,Employment,Commercial,,,,Expert calculation,NA,
+325,Average all company functions,TRUE,Average,0,Custom,Multiple,Combined,Residential,Generic,,,,Expert calculation,NA,
+326,Average all company functions corrected,TRUE,Average,0,Custom,Multiple,Combined,Residential,Generic,,,,Expert calculation,NA,MCM functions have a weight of 0.1 and Tebodin is left out
+327,Weighted average HAZUS and FLEMO industry,TRUE,Average,0,Custom,Multiple,Combined,Employment,Industrial,,,,Expert calculation,NA,
+328,FLEMO: Average industry combined,TRUE,Average,0,custom,Germany,Combined,Employment,Industrial,,,,Expert calculation,NA,
+329,Average all housing content functions,TRUE,Average,0,custom,Multiple,Content,Residential,Generic,,,,Expert calculation,NA,
+330,Average all housing structure functions,TRUE,Average,0,custom,Multiple,Structure,Residential,Generic,,,,Expert calculation,NA,
+331,First flood house,TRUE,Average,0,custom,Netherlands,Combined,Residential,Generic,,,,Expert calculation,Micro,
+332,High rise building,TRUE,Average,0,custom,Netherlands,Combined,Residential,Generic,,,,Expert calculation,Micro,
+333,Car,TRUE,Average,0,HAZUS-MH,United States,Combined,Residential,Vehicle,,,,Expert calculation,Micro,
+334,Light truck,TRUE,Average,0,HAZUS-MH,United States,Combined,Residential,Vehicle,,,,Expert calculation,Micro,
+335,Heavy truck,TRUE,Average,0,HAZUS-MH,United States,Combined,Residential,Vehicle,,,,Expert calculation,Micro,
+336,"HAZUS, MCM and FLEMO offices",TRUE,Average,0,Custom,Multiple,Combined,Employment,Office,,,,Expert calculation,Micro,
+337,"HAZUS, MCM and FLEMO Stores",TRUE,Average,0,Custom,Multiple,Combined,Employment,Commercial,,,,Expert calculation,Micro,
+338,"HAZUS, FLEMO and Tebodin Industry",TRUE,Average,0,Custom,Multiple,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+339,Average all none industry company functions,TRUE,Average,0,Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,Micro,
+340,Tebodin: Food industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+341,Tebodin: Textile industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+342,Tebodin: Leather industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+343,Tebodin: Wood industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+344,Tebodin: Paper industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+345,Tebodin: Printing press,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+346,Tebodin: Oil industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+347,Tebodin: Chemical industry (bulk),TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+348,Tebodin: Chemical industry (fine),TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+349,Tebodin: Ruber and plastic products industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+350,Tebodin: building material industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+351,Tebodin: Basic metal industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+352,Tebodin: Metal product industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+353,Tebodin: Machine industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+354,Tebodin: Computer industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+355,Tebodin: Other electronical industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+356,Tebodin: Transport industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+357,Tebodin: Furniture industry,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+358,"Tebodin weighted average rough (metal, oil, building)",TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+359,Teboding weighted average fine,TRUE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,Micro,
+360,FIAT proposed company functions (without industry) - option 1,TRUE,Average,0,Custom,Netherlands,Combined,Employment,Generic,,,,Expert calculation,Micro,
+361,FIAT proposed company functions (without industry) - option 0,TRUE,Average,0,Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,Micro,
+362,FIAT proposed company functions (without industry) - option 2,TRUE,Average,0,Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,Micro,
+363,FIAT proposed company functions (without industry) - option 3,TRUE,Average,0,Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,Micro,
+364,Tebodin average scaled to 1,FALSE,Average,0,Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,Micro,
+365,Theoretisch correcte opschaling,TRUE,Average,0,Custom,Multiple,Combined,Employment,Other,,,,Expert calculation,Micro,
+366,FIAT proposed company function (without industry) option 4,TRUE,Average,0,Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,Micro,
+367,Bedrijfsuitval functie,TRUE,Average,0,Custom,Multiple,Combined,Employment,Other,,,,Expert calculation,Micro,
+368,Tebodin: Food industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+369,Tebodin: Textile industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+370,Tebodin: Leather industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+371,Tebodin: Wood industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+372,Tebodin: Paper industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+373,Tebodin: Printing press (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+374,Tebodin: Oil industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+375,Tebodin: Chemical industry (bulk) (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+376,Tebodin: Chemical industry (fine) (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+377,Tebodin: Ruber and plastic products industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+378,Tebodin: building material industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+379,Tebodin: Basic metal industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+380,Tebodin: Metal product industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+381,Tebodin: Machine industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+382,Tebodin: Computer industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+383,Tebodin: Other electronical industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+384,Tebodin: Transport industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+385,Tebodin: Furniture industry (scaled to 1),FALSE,Average,0,Tebodin,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+386,MCM average companies function (wo industry),TRUE,Average,0,Custom,United Kingdom,Combined,Employment,Generic,,,,Expert calculation,,
+387,HAZUS average companies function (wo industry),TRUE,Average,0,Custom,United States,Combined,Employment,Generic,,,,Expert calculation,,
+388,Rhine Atlas average companies function,TRUE,Average,0,Custom,Germany,Combined,Employment,Generic,,,,Expert calculation,,
+389,FLEMOcs average companies function (wo industry),TRUE,Average,0,Custom,Germany,Combined,Employment,Generic,,,,Expert calculation,,
+390,Average all companies (with HIS-SSM),TRUE,Average,0,Custom,Multiple,Combined,Employment,Generic,,,,Expert calculation,,
+391,Kantoorfunctie,TRUE,Average,0,FIAT,Netherlands,Combined,Employment,Office,,,,Expert calculation,,
+392,Winkelfunctie,TRUE,Average,0,FIAT,Netherlands,Combined,Employment,Commercial,,,,Expert calculation,,
+393,Industriefunctie,TRUE,Average,0,FIAT,Netherlands,Combined,Employment,Industrial,,,,Expert calculation,,
+394,HIS-SSM: Family houses,TRUE,Average,0,HIS-SSM,Netherlands,Combined,Residential,Single-family,,,,Combination,,
+395,FIAT: first floor apartment,TRUE,Average,0,FIAT,Netherlands,Combined,Residential,Apartments,,,no damage before 2.5m water levels,Combination,,
+396,FIAT: higher floor apartment,TRUE,Average,0,FIAT,Netherlands,Combined,Residential,Apartments,,,no damage before 5m water levels,Combination,,
+397,SSM2015:1/10 y - Single Family,TRUE,Average,10,FIAT,Netherlands,Structure,Residential,Single-family,Semi-detached;Terraced,,"bungalow, cottage, semi-detached, terraced house, town house, villa, trailers, unknown (""Daarom werd besloten om de categorie eengezinswoningen te definiëren als
 alle gebouwen waaraan (volgens de BAG data) slechts één adres gekoppeld is. Vanaf
 SSM2015 wordt er dus geen onderscheid meer gemaakt tussen verschillende typen
 eengezinswoningen"")",Combination,Micro,
-398,SSM2015:1/10 y - Single Family - Content,FIAT,Netherlands,Content,Residential,Single-family,Semi-detached;Terraced,,"bungalow, cottage, semi-detached, terraced house, town house, villa, trailers, unknown (""Daarom werd besloten om de categorie eengezinswoningen te definiëren als
+398,SSM2015:1/10 y - Single Family,TRUE,Average,10,FIAT,Netherlands,Content,Residential,Single-family,Semi-detached;Terraced,,"bungalow, cottage, semi-detached, terraced house, town house, villa, trailers, unknown (""Daarom werd besloten om de categorie eengezinswoningen te definiëren als
 alle gebouwen waaraan (volgens de BAG data) slechts één adres gekoppeld is. Vanaf
 SSM2015 wordt er dus geen onderscheid meer gemaakt tussen verschillende typen
 eengezinswoningen"")",Combination,Micro,
-399,SSM2015:1/50 y - Single Family - Structure,FIAT,Netherlands,Structure,Residential,Single-family,Semi-detached;Terraced,,"bungalow, cottage, semi-detached, terraced house, town house, villa, trailers, unknown (""Daarom werd besloten om de categorie eengezinswoningen te definiëren als
+399,SSM2015:1/50 y - Single Family,TRUE,Average,50,FIAT,Netherlands,Structure,Residential,Single-family,Semi-detached;Terraced,,"bungalow, cottage, semi-detached, terraced house, town house, villa, trailers, unknown (""Daarom werd besloten om de categorie eengezinswoningen te definiëren als
 alle gebouwen waaraan (volgens de BAG data) slechts één adres gekoppeld is. Vanaf
 SSM2015 wordt er dus geen onderscheid meer gemaakt tussen verschillende typen
 eengezinswoningen"")",Combination,Micro,
-400,SSM2015:1/50 y - Single Family - Content,FIAT,Netherlands,Content,Residential,Single-family,Semi-detached;Terraced,,"bungalow, cottage, semi-detached, terraced house, town house, villa, trailers, unknown (""Daarom werd besloten om de categorie eengezinswoningen te definiëren als
+400,SSM2015:1/50 y - Single Family,TRUE,Average,50,FIAT,Netherlands,Content,Residential,Single-family,Semi-detached;Terraced,,"bungalow, cottage, semi-detached, terraced house, town house, villa, trailers, unknown (""Daarom werd besloten om de categorie eengezinswoningen te definiëren als
 alle gebouwen waaraan (volgens de BAG data) slechts één adres gekoppeld is. Vanaf
 SSM2015 wordt er dus geen onderscheid meer gemaakt tussen verschillende typen
 eengezinswoningen"")",Combination,Micro,
-401,SSM2015:1/10 y - Low Rise Building - Structure,FIAT,Netherlands,Structure,Residential,Terraced,,,"maisonette, residential space above shops",Combination,Micro,
-402,SSM2015:1/10 y - Low Rise Building - Content,FIAT,Netherlands,Content,Residential,Terraced,,,"maisonette, residential space above shops",Combination,Micro,
-403,SSM2015:1/50 y - Low Rise Building - Structure,FIAT,Netherlands,Structure,Residential,Terraced,,,"maisonette, residential space above shops",Combination,Micro,
-404,SSM2015:1/50 y - Low Rise Building - Content,FIAT,Netherlands,Content,Residential,Terraced,,,"maisonette, residential space above shops",Combination,Micro,
-405,Average all housing content,Custom,Multiple,Content,Residential,Generic,,,,Combination,Micro,
-406,Average all housing structures,Custom,Multiple,Structure,Residential,Generic,,,,Combination,Micro,
-407,Tebodin: Food industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-408,Tebodin: Textile industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-409,Tebodin: Leather industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-410,Tebodin: Wood industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-411,Tebodin: Paper industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-412,Tebodin: Printing press -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-413,Tebodin: Oil industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-414,Tebodin: Chemical industry (bulk) -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-415,Tebodin: Chemical industry (fine) -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-416,Tebodin: Ruber and plastic products industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-417,Tebodin: building material industry  -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-418,Tebodin: Basic metal industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-419,Tebodin:Metal product industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-420,Tebodin:Machine industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-421,Tebodin: Computer industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-422,Tebodin: Other electronical industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-423,Tebodin: Transport industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-424,Tebodin: Furniture industry -combined (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-425,SSM2015: Office based companies (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Office,,,,Combination,Micro,
-426,SSM2015: Store based companies (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Commercial,,,,Combination,Micro,
-427,SSM2015: Industry (general) (buitendijks) - 25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-428,Tebodin: Food industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-429,Tebodin: Textile industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-430,Tebodin: Leather industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-431,Tebodin: Wood industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-432,Tebodin: Paper industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-433,Tebodin: Printing press -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-434,Tebodin: Oil industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-435,Tebodin: Chemical industry (bulk) -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-436,Tebodin: Chemical industry (fine) -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-437,Tebodin: Ruber and plastic products industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-438,Tebodin: building material industry  -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-439,Tebodin: Basic metal industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-440,Tebodin:Metal product industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-441,Tebodin:Machine industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-442,Tebodin: Computer industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-443,Tebodin: Other electronical industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-444,Tebodin: Transport industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-445,Tebodin: Furniture industry -combined (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-446,SSM2015: Office based companies (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Office,,,,Combination,Micro,
-447,SSM2015: Store based companies (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Commercial,,,,Combination,Micro,
-448,SSM2015: Industry (general) (buitendijks) - 50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
-449,Infrastructuur functie,FIAT,Netherlands,Combined,Infrastructure,Generic,,,,Expert calculation,Micro,
-450,Kwetsbare objecten functie,FIAT,Netherlands,Combined,Other,,,,,Other,,
+401,SSM2015:1/10 y - Low Rise Building,TRUE,Average,10,FIAT,Netherlands,Structure,Residential,Terraced,,,"maisonette, residential space above shops",Combination,Micro,
+402,SSM2015:1/10 y - Low Rise Building,TRUE,Average,10,FIAT,Netherlands,Content,Residential,Terraced,,,"maisonette, residential space above shops",Combination,Micro,
+403,SSM2015:1/50 y - Low Rise Building,TRUE,Average,50,FIAT,Netherlands,Structure,Residential,Terraced,,,"maisonette, residential space above shops",Combination,Micro,
+404,SSM2015:1/50 y - Low Rise Building,TRUE,Average,50,FIAT,Netherlands,Content,Residential,Terraced,,,"maisonette, residential space above shops",Combination,Micro,
+405,Average all housing content,TRUE,Average,0,Custom,Multiple,Content,Residential,Generic,,,,Combination,Micro,
+406,Average all housing structures,TRUE,Average,0,Custom,Multiple,Structure,Residential,Generic,,,,Combination,Micro,
+407,Tebodin: Food industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+408,Tebodin: Textile industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+409,Tebodin: Leather industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+410,Tebodin: Wood industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+411,Tebodin: Paper industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+412,Tebodin: Printing press (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+413,Tebodin: Oil industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+414,Tebodin: Chemical industry (bulk) (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+415,Tebodin: Chemical industry (fine) (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+416,Tebodin: Ruber and plastic products industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+417,Tebodin: building material industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+418,Tebodin: Basic metal industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+419,Tebodin: Metal product industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+420,Tebodin: Machine industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+421,Tebodin: Computer industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+422,Tebodin: Other electronical industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+423,Tebodin: Transport industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+424,Tebodin: Furniture industry (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+425,SSM2015: Office based companies (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Office,,,,Combination,Micro,
+426,SSM2015: Store based companies (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Commercial,,,,Combination,Micro,
+427,SSM2015: Industry (general) (buitendijks) - 25,TRUE,Average,25,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+428,Tebodin: Food industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+429,Tebodin: Textile industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+430,Tebodin: Leather industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+431,Tebodin: Wood industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+432,Tebodin: Paper industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+433,Tebodin: Printing press (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+434,Tebodin: Oil industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+435,Tebodin: Chemical industry (bulk) (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+436,Tebodin: Chemical industry (fine) (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+437,Tebodin: Ruber and plastic products industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+438,Tebodin: building material industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+439,Tebodin: Basic metal industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+440,Tebodin: Metal product industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+441,Tebodin: Machine industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+442,Tebodin: Computer industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+443,Tebodin: Other electronical industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+444,Tebodin: Transport industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+445,Tebodin: Furniture industry (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+446,SSM2015: Office based companies (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Office,,,,Combination,Micro,
+447,SSM2015: Store based companies (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Commercial,,,,Combination,Micro,
+448,SSM2015: Industry (general) (buitendijks) - 50,TRUE,Average,50,FIAT,Netherlands,Combined,Employment,Industrial,,,,Combination,Micro,
+449,Infrastructuur functie,TRUE,Average,0,FIAT,Netherlands,Combined,Infrastructure,Generic,,,,Expert calculation,Micro,
+450,Kwetsbare objecten functie,TRUE,Average,0,FIAT,Netherlands,Combined,Other,,,,,Other,,
