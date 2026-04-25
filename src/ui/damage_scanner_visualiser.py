@@ -228,7 +228,7 @@ class DamageVisualiser:
 
         fmap = folium.Map(
             location=[center.y, center.x],
-            zoom_start=16,
+            zoom_start=25,
             tiles="CartoDB positron",
             control_scale=True,
             min_zoom=12,
