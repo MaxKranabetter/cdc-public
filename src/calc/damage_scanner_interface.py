@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from enum import Enum
 import logging
 import os
+from pathlib import Path
 import random
 import tempfile
 import pandas as pd
@@ -224,7 +225,16 @@ class BuildingDataInterface:
 class FloodmapInterface:
 
     def __init__(self, override_floodmaps: dict[int, str] | None = None):
-        self.available_floodmaps = DEFAULT_FLOODMAPS[FloodScenario.BASELINE] if override_floodmaps is None else override_floodmaps
+        floodmaps = DEFAULT_FLOODMAPS[FloodScenario.BASELINE] if override_floodmaps is None else override_floodmaps
+        self.available_floodmaps = self._resolve_floodmap_paths(floodmaps)
+
+    def _resolve_floodmap_paths(self, floodmaps: dict[int, str]) -> dict[int, str]:
+        project_root = Path(__file__).resolve().parents[2]
+        resolved_paths: dict[int, str] = {}
+        for return_period, floodmap_path in floodmaps.items():
+            path_obj = Path(floodmap_path)
+            resolved_paths[return_period] = str(path_obj if path_obj.is_absolute() else project_root / path_obj)
+        return resolved_paths
 
     def get_base_floodmap_data(self) -> str:
         # for now we just return the path to the base floodmap data, but this could be extended to include logic for selecting different floodmaps based on user input, or for loading the floodmap data into memory if needed

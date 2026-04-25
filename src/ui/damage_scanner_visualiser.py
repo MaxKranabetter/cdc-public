@@ -1,4 +1,5 @@
 import logging
+from pathlib import Path
 from typing import Any
 
 import branca.colormap as cm
@@ -14,6 +15,8 @@ from shapely.geometry import box
 import geopandas as gpd
 
 from src.calc.damage_scanner_interface import BuildingClassifierType, BuildingDataInput, DamageScannerInputs, DamageScannerInterface
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 class DamageVisualiser:
 
@@ -252,11 +255,15 @@ class DamageVisualiser:
         folium.LayerControl(collapsed=False).add_to(fmap)
 
         if output_html is not None:
-            fmap.save(output_html)
+            output_path = Path(output_html)
+            if not output_path.is_absolute():
+                output_path = PROJECT_ROOT / output_path
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            fmap.save(str(output_path))
 
         return fmap
 
-    def main(self, output_html: str = r"data\output\damage_visualisation.html") -> folium.Map:
+    def main(self, output_html: str = "data/output/damage_visualisation.html") -> folium.Map:
         ead_raw = self.damage_scanner.get_damages()
         return self.build_map(ead_raw, output_html=output_html)
 
@@ -267,4 +274,4 @@ if __name__ == "__main__":
     ])
     visualiser = DamageVisualiser(inputs)
     visualiser.main()
-    print("Saved interactive damage map to data\\output\\damage_visualisation.html")
+    print("Saved interactive damage map to data/output/damage_visualisation.html")

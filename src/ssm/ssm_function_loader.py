@@ -1,12 +1,14 @@
 from enum import Enum
 import logging
+from pathlib import Path
 
 import pandas as pd
 
 from src.ssm.models import Country, DamageModel, IntensityUnit, L1FunctionCategory, L3FunctionCategory, L2FunctionCategory, SSMFunction, SSMFunctionMetadata, SSMFunctionMethod, SSMFunctionScale, SSMFunctionType
 
-SSM_FUNCTIONS_PATH = "data/ssm/functies"
-FUNCTION_MAP_FILE_NAME = "data/ssm/function_mapping.csv"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+SSM_FUNCTIONS_PATH = PROJECT_ROOT / "data" / "ssm" / "functies"
+FUNCTION_MAP_FILE_NAME = PROJECT_ROOT / "data" / "ssm" / "function_mapping.csv"
 
 
 def _load_ssm_function_mapping() -> pd.DataFrame:
@@ -56,7 +58,7 @@ def load_ssm_functions() -> dict[int, SSMFunctionMetadata]:
 METADATA = load_ssm_functions()
 
 def _load_function_with_id(function_id: int) -> tuple[dict[float, float], IntensityUnit]:
-    filepath = f"{SSM_FUNCTIONS_PATH}/{function_id}.csv"
+    filepath = SSM_FUNCTIONS_PATH / f"{function_id}.csv"
     df = pd.read_csv(filepath, delimiter=",", encoding="utf-8")
     df.columns = [c.lower() for c in df.columns]
     intensity_column_name = df.columns[0]
