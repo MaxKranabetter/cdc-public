@@ -26,14 +26,14 @@ class DamageScannerInterface:
     def _init_damage_scanner(self) -> DamageScanner:
         if self.damage_scanner is not None:
             return self.damage_scanner
-        building_data = self.building_data_interface.get_building_data(as_fp=False)
-        damage_functions = self.damage_function_interface.get_damage_functions()
-        max_damage_data = self.max_damage_interface.get_max_damage_data(
-            selected_curves=[curve for curve in self.damage_function_interface.damage_functions.values() if str(curve.metadata.id) in damage_functions.columns[1:]]
+        self.building_data = self.building_data_interface.get_building_data(as_fp=False)
+        self.damage_functions = self.damage_function_interface.get_damage_functions()
+        self.max_damage_data = self.max_damage_interface.get_max_damage_data(
+            selected_curves=[curve for curve in self.damage_function_interface.damage_functions.values() if str(curve.metadata.id) in self.damage_functions.columns[1:]]
         )
-        floodmap_data = self.floodmap_interface.get_base_floodmap_data()
+        self.floodmap_data = self.floodmap_interface.get_base_floodmap_data()
         
-        self.damage_scanner = DamageScanner(floodmap_data, building_data, damage_functions, max_damage_data)
+        self.damage_scanner = DamageScanner(self.floodmap_data, self.building_data, self.damage_functions, self.max_damage_data)
         return self.damage_scanner
 
     def _get_ead(self) -> pd.DataFrame | None:
