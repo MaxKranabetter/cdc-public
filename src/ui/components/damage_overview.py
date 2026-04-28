@@ -15,14 +15,17 @@ def build_damage_columns(damage_functions: dict[str, list[int]],
     for name in relevant_packages:
         func_ids = damage_functions[name]
         current_damage = 0
+        functions_considered = 0
         for func_id in func_ids:
             if function_type_filter is not None:
                 metadata = function_metadata[func_id]
                 if metadata.function_type not in function_type_filter:
                     continue
+            functions_considered += 1
             if str(func_id) in ead.columns:
                 current_damage += ead[str(func_id)].sum()
-        damages.append(current_damage)
+        if functions_considered > 0:
+            damages.append(current_damage)
 
     min_damage = min(damages) if damages else 0
     max_damage = max(damages) if damages else 0
@@ -73,6 +76,8 @@ def build_damage_overview_section(damage_functions: dict[str, list[int]],
         function_type_filter=[SSMFunctionType.STRUCTURE]
     )
 
+    print(f"Structural functions considered: {structural_functions_considered}")
+
     if structural_functions_considered > 0:
         st.subheader("Of Which Structural Damage")
         metric_cols = st.columns(3)
@@ -89,6 +94,8 @@ def build_damage_overview_section(damage_functions: dict[str, list[int]],
         function_type_filter=[SSMFunctionType.CONTENT]
     )
 
+    print(f"Content functions considered: {content_functions_considered}")
+
     if content_functions_considered > 0:
         st.subheader("Of Which Content Damage")
         metric_cols = st.columns(3)
@@ -104,6 +111,8 @@ def build_damage_overview_section(damage_functions: dict[str, list[int]],
         deselected_functions,
         function_type_filter=[SSMFunctionType.INVENTORY]
     )
+
+    print(f"Inventory functions considered: {inventory_functions_considered}")
 
     if inventory_functions_considered > 0:
         st.subheader("Of Which Inventory Damage")

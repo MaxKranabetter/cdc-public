@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 from src.ui.components.damage_overview import build_damage_overview_section
 from src.ui.components.location_input_form import location_input_form
 
@@ -16,7 +15,7 @@ map_html = st.session_state.get("map_html")
 
 if ead is not None and map_html is not None:
     st.subheader("Map")
-    components.html(map_html, height=850, scrolling=True)
+    st.iframe(map_html, height=850)
 
     damage_functions: dict[str, list[int]] = st.session_state.get("damage_functions", {})
 
