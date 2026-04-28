@@ -4,7 +4,7 @@ import logging
 import pandas as pd
 
 from src.bag.models import BAGBuildingData, VerblijfsobjectFeature
-from src.ssm.models import Country, L1FunctionCategory as L1, L2FunctionCategory as L2, L3FunctionCategory as L3, SSMFunctionMetadata
+from src.ssm.models import Country, DamageFunctionMetadata, DamageFunctionPackage, L1FunctionCategory as L1, L2FunctionCategory as L2, L3FunctionCategory as L3
 from shapely.wkt import loads
 from shapely.geometry import Polygon, shape
 import json
@@ -116,7 +116,7 @@ def get_vbo_area(target_doel: str, vbos: list[VerblijfsobjectFeature]) -> float:
 
 class BAGSSMClassifier:
     
-    def __init__(self, damage_functions: dict[int, SSMFunctionMetadata]):
+    def __init__(self, damage_functions: dict[tuple[int], DamageFunctionPackage]):
         self.damage_functions = damage_functions
         self.matrix = SCORING_MATRIX
         
@@ -171,7 +171,7 @@ class BAGSSMClassifier:
             'neighbour_uses': neighbour_uses
         }
 
-    def match_functions_to_bag_object(self, bag_data: pd.Series, ci: float = 0.4, max_functions: int = 10) -> list[tuple[SSMFunctionMetadata, float]]:
+    def match_functions_to_bag_object(self, bag_data: pd.Series, ci: float = 0.4, max_functions: int = 10) -> list[tuple[DamageFunctionPackage, float]]:
         doelen = bag_data.get('gebruiksdoel', '').split(',')
         vbos = bag_data.get('verblijfsobjecten', [])
         scores = self.score_building(
@@ -273,26 +273,27 @@ class BAGSSMClassifier:
 
         return final_scores
     
-    def add_country_weight(self, f: SSMFunctionMetadata, current_weight: float, building_country: Country) -> float:
+    def add_country_weight(self, f: DamageFunctionMetadata, current_weight: float, building_country: Country) -> float:
         w = 1.0 if f.country == building_country else 0.33
         return current_weight * w
     
     def weight_functions(self, scores: dict) -> dict[int, float]:
         weighted_functions = defaultdict(float)
-        for func_id, func in self.damage_functions.items():
-            score = scores['L1'].get(func.l1_category, 0.0)
+        for func_ids, func_package in self.damage_functions.items():
+            md = func_package.metadata
+            score = scores['L1'].get(md.l1_category, 0.0)
             
             l2_scores = scores['L2']
-            for l2_cat in func.l2_categories:
+            for l2_cat in md.l2_categories:
                 l2_score = l2_scores.get(l2_cat, 0.0)
-                score += l2_score * 2 / len(func.l2_categories)
+                score += l2_score * 2 / len(md.l2_categories)
             
             l3_scores = scores['L3']
-            for l3_cat in func.l3_categories:
+            for l3_cat in md.l3_categories:
                 l3_score = l3_scores.get(l3_cat, 0.0)
-                score += l3_score * 3 / len(func.l3_categories) # penalise having many L3 categories (function is less specific)
+                score += l3_score * 3 / len(md.l3_categories) # penalise having many L3 categories (function is less specific)
 
-            weighted_functions[func_id] = self.add_country_weight(func, score, Country.NLD) # hard-coding NLD for now
+            weighted_functions[func_ids] = self.add_country_weight(md, score, Country.NLD) # hard-coding NLD for now
         
         # Normalize final function weights
         total_weight = sum(weighted_functions.values())

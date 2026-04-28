@@ -20,17 +20,17 @@ class MaxDamageInterface:
                 SSMFunctionType.COMBINED: 842
             },
             L1FunctionCategory.MULTIPLE: {
-                SSMFunctionType.STRUCTURE: 0, # placeholde
+                SSMFunctionType.STRUCTURE: 0, # placeholder
                 SSMFunctionType.CONTENT: 0, # TODO: implement
                 SSMFunctionType.COMBINED: 0
             },
             L1FunctionCategory.INFRASTRUCTURE: {
-                SSMFunctionType.STRUCTURE: 0, # placeholde
+                SSMFunctionType.STRUCTURE: 0, # placeholder
                 SSMFunctionType.CONTENT: 0, # TODO: implement
                 SSMFunctionType.COMBINED: 0
             },
             L1FunctionCategory.OTHER: {
-                SSMFunctionType.STRUCTURE: 0, # placeholde
+                SSMFunctionType.STRUCTURE: 0, # placeholder
                 SSMFunctionType.CONTENT: 0, # TODO: implement
                 SSMFunctionType.COMBINED: 0
             }

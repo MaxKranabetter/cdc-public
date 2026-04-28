@@ -9,6 +9,8 @@ from src.calc.models import (
 )
 from src.ui.damage_scanner_visualiser import DamageVisualiser
 from src.ui.components.interactive_dropdown import interactive_dropdown
+from src.ssm.models import DamageFunctionPackage
+from src.ui.components.damage_overview import build_damage_overview_section
 
 
 st.set_page_config(page_title="CDC Prototype", layout="wide")
@@ -56,9 +58,8 @@ if submitted:
             st.session_state["map_html"] = _render_map_html(fmap)
             st.session_state["address"] = address
             st.session_state["return_period"] = return_period
-            selected_curve_ids = ds.damage_functions.columns[1:].tolist() # columns are damage function names
-            functions = [ds.damage_function_interface.damage_functions.get(curve_id) for curve_id in selected_curve_ids if curve_id.isdigit()]
-            st.session_state["damage_functions"] = [(selected_curve_ids[i], f.metadata.name) for i, f in enumerate(functions) if f]
+            selected_curves: list[DamageFunctionPackage] = ds.damage_function_package_mapping.values()
+            st.session_state["damage_functions"] = {fp.metadata.name: fp.ids for fp in selected_curves}
         except AddressOutOfCoverageError as exc:
             _clear_results()
             st.error(str(exc))
@@ -73,24 +74,10 @@ if ead is not None and map_html is not None:
     st.subheader("Map")
     components.html(map_html, height=850, scrolling=True)
 
+    damage_functions: dict[str, list[int]] = st.session_state.get("damage_functions", {})
+
     st.subheader("Damage Curves")
-    focussed_function, deselected_functions = interactive_dropdown(
-        label="Customise damage curves",
-        items=[name for id, name in st.session_state.get("damage_functions", [])]
-    )
-
-    focussed_function_id = next((id for id, name in st.session_state.get("damage_functions", []) if name == focussed_function)) if focussed_function else "average_ead"
-    selected_function_ids = [id for id, name in st.session_state.get("damage_functions", []) if name not in deselected_functions]
-    damages = [ead[col].sum() for col in ead.columns if col in selected_function_ids]
-
-    min_damage = min(damages) if damages else 0
-    max_damage = max(damages) if damages else 0
-    total_damage = ead[focussed_function_id].sum()
-
-    metric_cols = st.columns(3)
-    metric_cols[0].metric("Min EAD", f"{min_damage:,.2f}")
-    metric_cols[1].metric("Estimated EAD" if focussed_function else "Average EAD", f"{total_damage:,.2f}")
-    metric_cols[2].metric("Max EAD", f"{max_damage:,.2f}")
+    build_damage_overview_section(damage_functions, ead)
 else:
     pass
     #st.info("Run a scan to see the damage results and map.")

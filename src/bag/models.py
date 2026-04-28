@@ -27,7 +27,7 @@ class VerblijfsobjectFeatureProperties(BaseModel):
     provincie_afkorting: str | None
     provincie_naam: str | None
     status: str
-    toevoeging: float | None
+    toevoeging: str | None
     woonplaats_identificatie: str | None
     woonplaats_naam: str | None
     woonplaats_status: str | None
