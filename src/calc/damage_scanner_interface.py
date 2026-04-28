@@ -41,6 +41,25 @@ class DamageScannerInterface:
         floodmap_dict = self.floodmap_interface.get_floodmap_dict()
         return ds.risk(floodmap_dict)#, object_col=self.object_col) # type: ignore
     
+    def get_risk_profile_data_at_location(self, lat: float, lon: float) -> list[tuple[int, float]]: # (return period, flood depth)
+        res = []
+        floodmaps = self.floodmap_interface.get_floodmap_dict()
+        for return_period, floodmap_fp in floodmaps.items():
+            depth = self.floodmap_interface.get_flood_depth_at_location(lat, lon, floodmap_fp)
+            if depth is not None:
+                res.append((return_period, depth))
+        return res
+    
+    def get_risk_profile_data(self) -> dict[str, list[tuple[int, float]]]: # {osm_id: [(return_period, flood_depth), ...]}
+        risk_profile_data = {}
+        for idx, row in self.building_data.iterrows():
+            osm_id = row['osm_id']
+            geom = row['geometry']
+            centroid = geom.centroid
+            lat, lon = centroid.y, centroid.x
+            risk_profile_data[osm_id] = self.get_risk_profile_data_at_location(lat, lon)
+        return risk_profile_data
+    
     def get_damages(self) -> gpd.GeoDataFrame:
         ead = self._get_ead()
 

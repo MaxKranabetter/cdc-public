@@ -1,6 +1,7 @@
 import streamlit as st
 from src.ui.components.damage_overview import build_damage_overview_section
 from src.ui.components.location_input_form import location_input_form
+from src.ui.components.risk_profile_overview import build_risk_profile_overview_section
 
 st.set_page_config(page_title="CDC Prototype", layout="wide")
 
@@ -21,6 +22,8 @@ if ead is not None and map_html is not None:
 
     st.subheader("Damage Overview")
     build_damage_overview_section(damage_functions, ead, function_metadata, all_packages)
+
+    build_risk_profile_overview_section(st.session_state["risk_profile_data"])
 else:
     pass
     #st.info("Run a scan to see the damage results and map.")

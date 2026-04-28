@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from src.common.raster_utils import get_value_at_coordinate
 from src.calc.file_mapping import DEFAULT_FLOODMAPS, FloodScenario
 
 
@@ -35,3 +36,7 @@ class FloodmapInterface:
 
         first_key = sorted(self.available_floodmaps.keys())[0]
         return self.available_floodmaps[first_key]
+    
+    def get_flood_depth_at_location(self, lat: float, lon: float, floodmap_fp: str) -> float | None:
+        raster_value = get_value_at_coordinate(floodmap_fp, lon, lat)
+        return raster_value

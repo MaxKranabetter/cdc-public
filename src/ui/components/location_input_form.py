@@ -22,7 +22,7 @@ def _build_inputs(address: str) -> DamageScannerInputs:
 
 def location_input_form():
     with st.form("damage_scanner_form"):
-        address = st.text_input("Address", value="Science Park 608, 1098 XH Amsterdam, Netherlands")
+        address = st.text_input("Address", value="Radioweg 38, 1098 NJ Amsterdam, Netherlands")
         return_period = 100
         submitted = st.form_submit_button("Run calculation")
 
@@ -49,6 +49,7 @@ def location_input_form():
                 st.session_state["damage_functions"] = {fp.metadata.name: fp.ids for fp in selected_curves}
                 st.session_state["all_packages"] = {fp.metadata.name: fp for fp in ds.damage_function_package_mapping.values()}
                 st.session_state["function_metadata"] = ds.damage_function_interface.damage_function_metadata
+                st.session_state["risk_profile_data"] = ds.get_risk_profile_data()
             except AddressOutOfCoverageError as exc:
                 _clear_results()
                 st.error(str(exc))
