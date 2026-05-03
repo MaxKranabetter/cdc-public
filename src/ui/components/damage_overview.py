@@ -31,6 +31,61 @@ def render_damage_metric_section(title: str,
         unsafe_allow_html=True,
     )
 
+
+def calculate_function_damage(func_ids: list[int],
+                              ead: pd.DataFrame,
+                              function_metadata: dict[int, SSMFunctionMetadata],
+                              function_type_filter: list[SSMFunctionType] | None = None) -> tuple[float, int]:
+    total_damage = 0
+    functions_considered = 0
+
+    for func_id in func_ids:
+        if function_type_filter is not None:
+            metadata = function_metadata[func_id]
+            if metadata.function_type not in function_type_filter:
+                continue
+
+        functions_considered += 1
+        if str(func_id) in ead.columns:
+            total_damage += ead[str(func_id)].sum()
+
+    return total_damage, functions_considered
+
+
+def render_package_damage_expander(package_name: str,
+                                   damage_functions: dict[str, list[int]],
+                                   ead: pd.DataFrame,
+                                   function_metadata: dict[int, SSMFunctionMetadata]):
+    func_ids = damage_functions.get(package_name, [])
+    package_total, functions_considered = calculate_function_damage(func_ids, ead, function_metadata)
+
+    with st.expander(f"{package_name} · {package_total:,.2f}", expanded=False):
+        st.caption(f"{functions_considered} function{'' if functions_considered == 1 else 's'} considered")
+
+        type_rows: list[tuple[str, float]] = []
+        for label, function_type in [
+            ("Structure", SSMFunctionType.STRUCTURE),
+            ("Content", SSMFunctionType.CONTENT),
+            ("Inventory", SSMFunctionType.INVENTORY),
+            ("Combined", SSMFunctionType.COMBINED),
+        ]:
+            type_total, type_count = calculate_function_damage(
+                func_ids,
+                ead,
+                function_metadata,
+                function_type_filter=[function_type],
+            )
+            if type_count > 0:
+                type_rows.append((label, type_total))
+
+        if not type_rows:
+            st.info("No type-specific damage split is available for this package.")
+            return
+
+        type_columns = st.columns(len(type_rows))
+        for column, (label, value) in zip(type_columns, type_rows):
+            column.metric(f"{label} EAD", f"{value:,.2f}")
+
 def build_damage_columns(damage_functions: dict[str, list[int]],
                          ead: pd.DataFrame,
                          function_metadata: dict[int, SSMFunctionMetadata],
@@ -71,6 +126,22 @@ def build_damage_columns(damage_functions: dict[str, list[int]],
 
     return min_damage, total_damage, max_damage, len(damages)
 
+
+def render_package_overview_row(damage_functions: dict[str, list[int]],
+                                ead: pd.DataFrame,
+                                function_metadata: dict[int, SSMFunctionMetadata],
+                                deselected_functions: list[str]):
+    selected_packages = [name for name in damage_functions.keys() if name not in deselected_functions]
+
+    if len(selected_packages) == 0:
+        return
+
+    st.subheader("Damage Functions")
+    package_columns = st.columns(len(selected_packages))
+    for column, package_name in zip(package_columns, selected_packages):
+        with column:
+            render_package_damage_expander(package_name, damage_functions, ead, function_metadata)
+
 def build_damage_overview_section(damage_functions: dict[str, list[int]],
                                   ead: pd.DataFrame,
                                   function_metadata: dict[int, SSMFunctionMetadata],
@@ -98,68 +169,11 @@ def build_damage_overview_section(damage_functions: dict[str, list[int]],
         max_total_damage,
     )
 
-    min_structural_damage, total_structural_damage, max_structural_damage, structural_functions_considered = build_damage_columns(
+
+    st.divider()
+    render_package_overview_row(
         damage_functions,
         ead,
         function_metadata,
-        focussed_function_name,
         deselected_functions,
-        function_type_filter=[SSMFunctionType.STRUCTURE]
     )
-
-    print(f"Structural functions considered: {structural_functions_considered}")
-
-    if structural_functions_considered > 0:
-        render_damage_metric_section(
-            "Of Which Structural Damage",
-            "Estimated Structural EAD" if focussed_function_name else "Average Structural EAD",
-            total_structural_damage,
-            "Min Structural EAD",
-            min_structural_damage,
-            "Max Structural EAD",
-            max_structural_damage,
-        )
-
-    min_content_damage, total_content_damage, max_content_damage, content_functions_considered = build_damage_columns(
-        damage_functions,
-        ead,
-        function_metadata,
-        focussed_function_name,
-        deselected_functions,
-        function_type_filter=[SSMFunctionType.CONTENT]
-    )
-
-    print(f"Content functions considered: {content_functions_considered}")
-
-    if content_functions_considered > 0:
-        render_damage_metric_section(
-            "Of Which Content Damage",
-            "Estimated Content EAD" if focussed_function_name else "Average Content EAD",
-            total_content_damage,
-            "Min Content EAD",
-            min_content_damage,
-            "Max Content EAD",
-            max_content_damage,
-        )
-
-    min_inventory_damage, total_inventory_damage, max_inventory_damage, inventory_functions_considered = build_damage_columns(
-        damage_functions,
-        ead,
-        function_metadata,
-        focussed_function_name,
-        deselected_functions,
-        function_type_filter=[SSMFunctionType.INVENTORY]
-    )
-
-    print(f"Inventory functions considered: {inventory_functions_considered}")
-
-    if inventory_functions_considered > 0:
-        render_damage_metric_section(
-            "Of Which Inventory Damage",
-            "Estimated Inventory EAD" if focussed_function_name else "Average Inventory EAD",
-            total_inventory_damage,
-            "Min Inventory EAD",
-            min_inventory_damage,
-            "Max Inventory EAD",
-            max_inventory_damage,
-        )
