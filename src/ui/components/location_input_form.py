@@ -39,13 +39,13 @@ def location_input_form():
                     visualiser = DamageVisualiser(_build_inputs(address), selected_return_period=return_period)
                     ds = visualiser.damage_scanner
                     ead = ds.get_damages()
-                    fmap = visualiser.build_map(ead)
+                    #fmap = visualiser.build_map(ead)
 
                 st.session_state["ead"] = ead
-                st.session_state["map_html"] = fmap.get_root().render()
+                #st.session_state["map_html"] = fmap.get_root().render()
                 st.session_state["address"] = address
                 st.session_state["return_period"] = return_period
-                selected_curves: list[DamageFunctionPackage] = ds.damage_function_package_mapping.values()
+                selected_curves: list[DamageFunctionPackage] = ds.get_best_functions_for_building(ds.building_data.iloc[0]['osm_id'], max_functions=5)
                 st.session_state["damage_functions"] = {fp.metadata.name: fp.ids for fp in selected_curves}
                 st.session_state["all_packages"] = {fp.metadata.name: fp for fp in ds.damage_function_package_mapping.values()}
                 st.session_state["function_metadata"] = ds.damage_function_interface.damage_function_metadata

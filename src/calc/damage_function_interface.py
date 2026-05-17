@@ -100,7 +100,7 @@ class DamageFunctionInterface:
 
     def get_damage_functions(self) -> tuple[pd.DataFrame, dict[int, DamageFunctionPackage]]:
         all_ids_with_confidence = [str(id) for ids in self.function_confidences.keys() for id in ids]
-        curves_to_include = [curve for curve in self.damage_functions.values() if str(curve.metadata.id) in all_ids_with_confidence]
+        curves_to_include = [curve for curve in self.damage_functions.values() if str(curve.metadata.id) in all_ids_with_confidence or True]
         column_headers = ["Depth"] + [str(curve.metadata.id) for curve in curves_to_include]
         depth_values = list(curves_to_include)[0].values.keys() # this assumes all curves have the same depth values, which should be the case for SSM functions - this could do with a cleaner logic that includes rescaling though
         data = []
@@ -115,16 +115,14 @@ class DamageFunctionInterface:
             mapped_packages[curve.metadata.id] = package
         return df, mapped_packages
     
-    def classify_bag_landuse(self, bag_data: pd.Series) -> list[SSMFunction]:
-        functions_with_confidences = self.bag_ssm_classifier.match_functions_to_bag_object(bag_data, max_functions=5)
+    def classify_bag_landuse(self, bag_data: pd.Series, max_functions: int = 5) -> list[DamageFunctionPackage]:
+        functions_with_confidences = self.bag_ssm_classifier.match_functions_to_bag_object(bag_data, max_functions=max_functions)
         for func_package, confidence in functions_with_confidences:
             self.function_confidences[tuple(func_package.ids)] = confidence
-        return [self.damage_functions[str(func_id)] for func_package, confidence in functions_with_confidences for func_id in func_package.ids]
+        return [self.damage_function_packages[tuple(func_package.ids)] for func_package, confidence in functions_with_confidences]
     
-    def get_matching_functions_for_object(self, row: pd.Series) -> list[SSMFunction]:
+    def get_matching_functions_for_object(self, row: pd.Series, max_functions: int = 5) -> list[DamageFunctionPackage]:
         if row["classifier_used"] == BuildingClassifierType.BAG.value:
-            return self.classify_bag_landuse(row)
-        funcs = [random.choice(list(self.damage_functions.values())), random.choice(list(self.damage_functions.values()))]
-        for func in funcs:
-            self.function_confidences[str(func.metadata.id)] = 0
+            return self.classify_bag_landuse(row, max_functions=max_functions)
+        funcs = [random.choice(list(self.damage_function_packages.values())), random.choice(list(self.damage_function_packages.values()))]
         return funcs

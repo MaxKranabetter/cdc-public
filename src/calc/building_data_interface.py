@@ -46,8 +46,7 @@ class BuildingDataInterface:
             gdf["osm_id"] = id # damagescanner requires this column to function, we can use it to easily identify buildings in the final output
         gdf["classifier_used"] = classifier_column
         def _get_function_names(row):
-            matching_functions = self.functions.get_matching_functions_for_object(row)
-            function_names = [str(func.metadata.id) for func in matching_functions]
+            function_names = [str(func.metadata.id) for func in self.functions.damage_functions.values()]
             if len(function_names) == 0:
                 raise ValueError(f"No matching damage functions found for feature: {row}")
             return function_names

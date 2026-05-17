@@ -277,7 +277,7 @@ class BAGSSMClassifier:
         w = 1.0 if f.country == building_country else 0.33
         return current_weight * w
     
-    def weight_functions(self, scores: dict) -> dict[int, float]:
+    def weight_functions(self, scores: dict) -> dict[tuple, float]:
         weighted_functions = defaultdict(float)
         for func_ids, func_package in self.damage_functions.items():
             md = func_package.metadata

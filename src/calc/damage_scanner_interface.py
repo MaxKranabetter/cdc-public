@@ -8,6 +8,7 @@ from src.calc.damage_function_interface import DamageFunctionInterface
 from src.calc.floodmap_interface import FloodmapInterface
 from src.calc.max_damage_interface import MaxDamageInterface
 from src.calc.models import DamageScannerInputs
+from src.ssm.models import DamageFunctionPackage
 
 class DamageScannerInterface:
 
@@ -73,6 +74,10 @@ class DamageScannerInterface:
         # input format: osm_id (building ID), obj_type (damage function), geometry, risk
         # output format: osm_id, {unique obj_type values as columns}, geometry, risk
         damage_data = ead.pivot_table(index=['osm_id', 'geometry'], columns='object_type', values='annualised_damage').reset_index()
-        damage_data["average_ead"] = damage_data[[col for col in damage_data.columns if col not in ['osm_id', 'geometry']]].mean(axis=1, skipna=True)
+        #damage_data["average_ead"] = damage_data[[col for col in damage_data.columns if col not in ['osm_id', 'geometry']]].mean(axis=1, skipna=True)
         damage_gdf = gpd.GeoDataFrame(damage_data, geometry='geometry', crs=ead.crs)
         return damage_gdf
+    
+    def get_best_functions_for_building(self, building_osm_id: setattr, max_functions: int = 5) -> list[DamageFunctionPackage]:
+        building_row = self.building_data[self.building_data['osm_id'] == building_osm_id].iloc[0]
+        return self.damage_function_interface.get_matching_functions_for_object(building_row, max_functions=max_functions)

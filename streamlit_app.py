@@ -14,9 +14,9 @@ all_packages = st.session_state.get("all_packages", {})
 function_metadata = st.session_state.get("function_metadata", {})
 map_html = st.session_state.get("map_html")
 
-if ead is not None and map_html is not None:
-    st.subheader("Map")
-    st.iframe(map_html, height=850)
+if ead is not None:# and map_html is not None:
+    #st.subheader("Map")
+    #st.iframe(map_html, height=850)
 
     damage_functions: dict[str, list[int]] = st.session_state.get("damage_functions", {})
 
