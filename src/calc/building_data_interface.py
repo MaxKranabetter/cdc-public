@@ -15,16 +15,13 @@ class BuildingDataInterface:
 
     def __init__(
         self,
-        inputs: list[BuildingDataInput],
         function_interface: DamageFunctionInterface,
         building_classifier_column: str = 'object_type',
         coverage_floodmap_path: str | None = None,
     ):
-        self.inputs = inputs
         self.functions = function_interface
         self.building_classifier_column = building_classifier_column
         self.coverage_floodmap_path = coverage_floodmap_path
-        assert len(inputs) > 0, "At least one building data input must be provided"
 
     def _get_address_data(self, address: str) -> gpd.GeoDataFrame:
         building_data, neighbourhood = get_building_polygons_from_address(
@@ -69,12 +66,12 @@ class BuildingDataInterface:
             raise ValueError("Invalid building data input: must provide either address, shapefile path, or geodataframe")
         return self._match_classifier_column(gdf, input.building_classifier_type.value, input.name or f"building_{index+1}")
 
-    def get_building_data(self, as_fp: bool = True) -> str | gpd.GeoDataFrame:
+    def get_building_data(self, inputs: list[BuildingDataInput], as_fp: bool = True) -> str | gpd.GeoDataFrame:
         """
         Loads and processes building data from the provided inputs, and stores it in a Shapefile in a temporary directory.
         Returns the path to the Shapefile.
         """
-        all_building_data = [self._load_input(input, index) for index, input in enumerate(self.inputs)]
+        all_building_data = [self._load_input(input, index) for index, input in enumerate(inputs)]
         combined_gdf = gpd.GeoDataFrame(pd.concat(all_building_data, ignore_index=True), crs=all_building_data[0].crs)
 
         if not as_fp:

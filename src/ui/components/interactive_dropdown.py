@@ -29,7 +29,7 @@ def interactive_dropdown(label, items, unique_key="dropdown"):
                 st.session_state[focus_key] = None
 
     # 3. Render the UI
-    with st.popover(label, use_container_width=True):
+    with st.popover(label, width="stretch"):
         if not items:
             st.write("No items available.")
             return None, set()

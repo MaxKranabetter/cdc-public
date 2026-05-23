@@ -18,7 +18,6 @@ class DamageScannerInterface:
         self.damage_function_interface = DamageFunctionInterface()
         self.floodmap_interface = FloodmapInterface(override_floodmaps=inputs.override_floodmaps)
         self.building_data_interface = BuildingDataInterface(
-            inputs.building_inputs,
             function_interface=self.damage_function_interface,
             coverage_floodmap_path=self.floodmap_interface.get_representative_floodmap_path(),
         )
@@ -27,7 +26,7 @@ class DamageScannerInterface:
     def _init_damage_scanner(self) -> DamageScanner:
         if self.damage_scanner is not None:
             return self.damage_scanner
-        self.building_data = self.building_data_interface.get_building_data(as_fp=False)
+        self.building_data = self.building_data_interface.get_building_data(as_fp=False) # TODO: parse inputs
         self.damage_functions_df, self.damage_function_package_mapping = self.damage_function_interface.get_damage_functions()
         self.max_damage_data = self.max_damage_interface.get_max_damage_data(
             selected_curves=[curve for curve in self.damage_function_interface.damage_functions.values() if str(curve.metadata.id) in self.damage_functions_df.columns[1:]]

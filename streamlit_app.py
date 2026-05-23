@@ -6,7 +6,7 @@ from src.ui.components.risk_profile_overview import build_risk_profile_overview_
 st.set_page_config(page_title="CDC Prototype", layout="wide")
 
 st.title("CDC Prototype")
-st.write("Enter an address, run the tool, and inspect the estimated damages on the map below.")
+st.write("Use the wizard below to test the intake flow. It currently runs on mock frontend data.")
 location_input_form()
 
 ead = st.session_state.get("ead")

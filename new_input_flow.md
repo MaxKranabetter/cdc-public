@@ -1,0 +1,50 @@
+ - Step 1: Address input form
+	 - user inputs the address of the building in question into a text field
+ - Step 2: Confirm building polygon and enter extra details:
+	 - the user is shown the building polygon on a map to confirm that the correct building was selected
+ - Step 3: Use & subtype selection
+	 - the user needs to set the 3 function categories (use, subtype, specific type)
+	 - this is done in order through three dropdowns
+	 - the selection of dropdown 1 restricts the options shown to the user in dropdown 2, which in turn restricts the options shown in dropdown 3 (or it is not shown at all if there are no applicable level 3 categories)
+	 - the mapping is as follows:
+		 - Residential
+			 - Apartments
+			 - Single Family
+				 - Terraced
+				 - Semi detached
+				 - Fully detached
+				 - N/A
+		 - Employment
+			 - Agriculture
+			 - Commercial
+				 - Bank
+				 - HoReCa
+				 - Sports & Recreation
+				 - N/A
+			 - Education
+				 - Library
+				 - School
+				 - N/A
+			 - Hospital
+			 - Industrial
+				 - Warehouse
+				 - N/A
+			 - Office
+				 - Social Infrastructure
+				 - N/A
+		 - Infrastructure
+			 - Transportation
+			 - Water
+			 - N/A
+ - Step 4: User needs to select what the floor height is for the building (assume default value based on previously selected typology)
+ - Step 5: User needs to select if they want to calculate damages for the entire building or for one unit only
+	 - Step 5.a.1 (single unit only)
+		 - User inputs unit area and which floor the unit is on
+	 - Step 5.b.1 (entire building)
+		 - User inputs total floor count
+		 - User verifies total area for each floor (by default it is assumed that every floor has the same area)
+ - Step 6: User is presented with estimated maximum damage values
+	 - Structural damage
+	 - Content damage
+	 - (Inventory damage) (not for residential)
+ - Step 7: User is asked to confirm shared damage % for structural damage (i.e. how much of the maximum structural damage is shared infrastructure that would affect every floor/unit, even if it is not the ground floor)
