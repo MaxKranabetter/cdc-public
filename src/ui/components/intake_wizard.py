@@ -2,12 +2,14 @@ from __future__ import annotations
 
 import folium
 import pandas as pd
+import geopandas as gpd
+import shapely
 import streamlit as st
 import tempfile
 from pathlib import Path
 
-from calc.building_data_interface import BuildingDataInterface
-from calc.models import BuildingClassifierType, BuildingDataInput
+from src.bag.get_building_polygon import get_building_polygons_from_address
+from src.bag.models import BAGBuildingData
 from src.ui.components.mock_intake_data import (
     MockBuildingContext,
     MockIntakeSelection,
@@ -148,7 +150,7 @@ def _render_step_header(step_index: int) -> None:
     st.progress((step_index + 1) / len(STEP_LABELS))
 
 
-def _render_address_step(building_interface: BuildingDataInterface) -> None:
+def _render_address_step(coverage_floodmap_path: str) -> None:
     st.subheader("1. Address")
     st.write("Enter the address first. The rest of the flow uses mock data so the frontend can be tested immediately.")
     st.text_input("Building address", key="intake_address", placeholder="Radioweg 38, 1098 NJ Amsterdam, Netherlands")
@@ -156,23 +158,26 @@ def _render_address_step(building_interface: BuildingDataInterface) -> None:
     if st.button("Find building", type="primary", key="intake_find_building"):
         address = st.session_state.get("intake_address", "").strip()
         if not address:
-            st.error("Please enter an address.")
-            return
+            address = "Radioweg 38, 1098 NJ Amsterdam, Netherlands"
+            # st.error("Please enter an address.")
+            # return
         _clear_mock_results()
-        st.session_state["intake_building_context"] = building_interface.get_building_data(inputs=[
-            BuildingDataInput(
-                building_classifier_type=BuildingClassifierType.BAG,
-                address=address
-            )],
-            as_fp=False
+        building, neighbouring_buildings = get_building_polygons_from_address(
+            address,
+            response_limit=25,
+            search_box_size=50,
+            coverage_floodmap_path=coverage_floodmap_path
         )
+        st.session_state["intake_building_context"] = building
+        st.session_state["intake_neighbouring_buildings"] = neighbouring_buildings
         _go_to_step("confirm")
 
 
-def _render_mock_map(building: MockBuildingContext) -> None:
-    fmap = folium.Map(location=[building.centroid_lat, building.centroid_lon], zoom_start=19, tiles="CartoDB positron")
+def _render_mock_map(building_geom: shapely.geometry.Polygon) -> None:
+    centroid = building_geom.centroid
+    fmap = folium.Map(location=[centroid.y, centroid.x], zoom_start=19, tiles="CartoDB positron", crs="EPSG3857")
     folium.GeoJson(
-        building.polygon.__geo_interface__,
+        building_geom.__geo_interface__,
         name="Selected building",
         style_function=lambda _: {
             "fillColor": "#5b8def",
@@ -181,10 +186,10 @@ def _render_mock_map(building: MockBuildingContext) -> None:
             "fillOpacity": 0.45,
         },
     ).add_to(fmap)
-    folium.Marker(
-        [building.centroid_lat, building.centroid_lon],
-        tooltip=building.building_label,
-    ).add_to(fmap)
+    # folium.Marker(
+    #     [centroid.lat, centroid.lon],
+    #     tooltip=building.building_label,
+    # ).add_to(fmap)
     with tempfile.NamedTemporaryFile(mode="w", suffix=".html", delete=False, encoding="utf-8") as temp_file:
         temp_file.write(fmap.get_root().render())
         temp_path = Path(temp_file.name)
@@ -194,25 +199,30 @@ def _render_mock_map(building: MockBuildingContext) -> None:
 def _render_confirm_step() -> None:
     st.subheader("2. Confirm building")
     building = st.session_state.get("intake_building_context")
-    if not isinstance(building, MockBuildingContext):
+    address = st.session_state.get("intake_address", "Unknown address").strip()
+    if not isinstance(building, BAGBuildingData):
         st.warning("No building context available yet. Please go back and enter an address again.")
         if st.button("Back to address", key="intake_back_to_address"):
             _go_to_step("address")
         return
+    
+    building_geom_rd = building.pand.geometry.to_shapely()[0]
+    building_gdf = gpd.GeoDataFrame(geometry=[building_geom_rd], crs="EPSG:28992")
+    building_wgs84 = building_gdf.to_crs("EPSG:4326")
+    building_geom_wgs84 = building_wgs84.geometry.iloc[0]
 
     cols = st.columns([1.25, 1, 1])
     with cols[0]:
-        st.markdown(f"**Selected building**  \n{building.building_label}")
-        st.write(f"Address: {building.address}")
-        st.write(f"Neighborhood: {building.neighborhood}")
-        st.write(f"Building ID: {building.building_id}")
+        st.markdown(f"**Selected building**:")
+        st.write(f"Address: {address}")
     with cols[1]:
-        st.metric("Centroid latitude", f"{building.centroid_lat:.5f}")
-        st.metric("Centroid longitude", f"{building.centroid_lon:.5f}")
+        building_centroid = building.pand.geometry.get_centroid(coordinate_crs="EPSG:28992")
+        st.metric("Centroid latitude", f"{building_centroid.lat:.5f}")
+        st.metric("Centroid longitude", f"{building_centroid.lon:.5f}")
     with cols[2]:
-        st.metric("Polygon vertices", len(list(building.polygon.exterior.coords)) - 1)
+        st.metric("Polygon vertices", len(list(building.pand.geometry.coordinates[0])) - 1)
 
-    _render_mock_map(building)
+    _render_mock_map(building_geom_wgs84)
 
     nav = st.columns([1, 1, 4])
     with nav[0]:
@@ -434,7 +444,7 @@ def _render_complete_step() -> None:
             _go_to_step("address")
 
 
-def render_intake_wizard() -> None:
+def render_intake_wizard(coverage_floodmap_path: str) -> None:
     st.session_state.setdefault("intake_step", "address")
     st.session_state.setdefault("intake_use", USE_OPTIONS[0])
     st.session_state.setdefault("intake_subtype", get_subtype_options(USE_OPTIONS[0])[0])
@@ -449,7 +459,7 @@ def render_intake_wizard() -> None:
     with st.container(border=True):
         _render_step_header(step_index)
         if step == "address":
-            _render_address_step()
+            _render_address_step(coverage_floodmap_path)
         elif step == "confirm":
             _render_confirm_step()
         elif step == "typology":

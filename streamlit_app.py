@@ -1,4 +1,5 @@
 import streamlit as st
+from src.calc.floodmap_interface import FloodmapInterface
 from src.ui.components.damage_overview import build_damage_overview_section
 from src.ui.components.location_input_form import location_input_form
 from src.ui.components.risk_profile_overview import build_risk_profile_overview_section
@@ -7,7 +8,8 @@ st.set_page_config(page_title="CDC Prototype", layout="wide")
 
 st.title("CDC Prototype")
 st.write("Use the wizard below to test the intake flow. It currently runs on mock frontend data.")
-location_input_form()
+floodmap_interface = FloodmapInterface()
+location_input_form(floodmap_interface.get_representative_floodmap_path())
 
 ead = st.session_state.get("ead")
 all_packages = st.session_state.get("all_packages", {})
