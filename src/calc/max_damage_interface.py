@@ -7,6 +7,7 @@ class MaxDamageInterface:
 
     def __init__(self, object_col: str = 'obj_type'):
         self.object_col = object_col
+        # TODO: adjust for inflation
         self.max_damages_per_sqm = {
             L1FunctionCategory.EMPLOYMENT: {
                 SSMFunctionType.STRUCTURE: 580.5,

@@ -125,10 +125,14 @@ def get_verblijfsobjecten_in_area(bbox_str: str) -> VerblijfsobjectQueryResponse
     data = response.json()
     return VerblijfsobjectQueryResponse.model_validate(data)
 
+def get_3d_bag_data_for_pand(pand_id: str) -> dict:
+    bag3d_api_base_url = "https://api.3dbag.nl/"
+    endpoint = f"collections/pand/items/NL.IMBAG.Pand.{pand_id}"
+    response = _send_request(bag3d_api_base_url, endpoint, {})
+    return response.json()
 
 def _send_request(base_url: str, endpoint: str, payload: dict) -> requests.Response:
     url = base_url + endpoint
     response = requests.get(url, params=payload)
     response.raise_for_status()
     return response
-

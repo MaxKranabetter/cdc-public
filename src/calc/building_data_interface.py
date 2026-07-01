@@ -8,7 +8,7 @@ from src.common.build_shapefile import create_gdf
 
 import geopandas as gpd
 
-from src.bag.get_building_polygon import get_building_polygons_from_address
+from src.bag.get_building_polygon import get_building_polygons_from_address, get_3d_bag_data_for_pand
 
 
 class BuildingDataInterface:
@@ -33,10 +33,21 @@ class BuildingDataInterface:
             search_box_size=50,
             coverage_floodmap_path=self.coverage_floodmap_path,
         )
+        bag_3d_data = get_3d_bag_data_for_pand(building_data.pand.properties.identificatie)
         properties = building_data.pand.properties.model_dump()
+        properties["building_floors"] = self.get_floor_count_from_3d_bag_data(building_data.pand.properties.identificatie, bag_3d_data)
         properties["neighbourhood"] = neighbourhood
         properties["verblijfsobjecten"] = building_data.verblijfsobjecten
         return create_gdf(building_data.pand.geometry.coordinates, properties, crs="EPSG:28992") # RD New
+
+    def get_floor_count_from_3d_bag_data(self, pand_id: str, bag_3d_data: dict) -> int:
+        try:
+            city_objects = bag_3d_data["feature"]["CityObjects"]
+            if f"NL.IMBAG.Pand.{pand_id}" not in city_objects:
+                raise ValueError(f"Pand ID {pand_id} not found in 3D BAG data")
+            return city_objects[f"NL.IMBAG.Pand.{pand_id}"]["attributes"]["b3_bouwlagen"]
+        except:
+            raise ValueError(f"Invalid 3D BAG data: {bag_3d_data}")
 
     def _load_shapefile_data(self, shapefile_path: str) -> gpd.GeoDataFrame:
         return gpd.read_file(shapefile_path)
@@ -52,7 +63,7 @@ class BuildingDataInterface:
             return function_names
         
         gdf['temp_functions_list'] = gdf.apply(_get_function_names, axis=1)
-        gdf = gdf.explode('temp_functions_list', ignore_index=True)
+        gdf = gdf.explode('temp_functions_list', ignore_index=True) # just calculate the values for all damage functions so that we can easily use them later without having to recalculate
         gdf[self.building_classifier_column] = gdf['temp_functions_list']
         gdf = gdf.drop(columns=['temp_functions_list'])
 
