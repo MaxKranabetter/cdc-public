@@ -69,6 +69,15 @@ class L3FunctionCategory(Enum):
     WAREHOUSE = "Warehouse"
     OTHER = "Other"
 
+class StoreysAboveGround(Enum):
+    ZERO = "0"
+    ONE = "1"
+    TWO = "2"
+    TWO_OR_MORE = "2+"
+    THREE = "3"
+    THREE_OR_MORE = "3+"
+    OTHER = "Other"
+
 CATEGORY_FLOW = {
     L1FunctionCategory.RESIDENTIAL: {
         L2FunctionCategory.APARTMENTS: [],
@@ -123,6 +132,7 @@ class DamageFunctionMetadata:
     l3_categories: list[L3FunctionCategory]
     method: SSMFunctionMethod
     scale: SSMFunctionScale
+    storeys_above_ground: tuple[StoreysAboveGround, StoreysAboveGround] | tuple[StoreysAboveGround] | None = None
     notes: str | None = None
     source_description: str | None = None
 
@@ -162,6 +172,10 @@ class DamageFunctionSet:
                 metadata_dict = {field: getattr(func.metadata, field) for field in func.metadata.__dataclass_fields__ if field not in fields_to_remove}
                 return DamageFunctionSetMetadata(**metadata_dict)
         return None
+    
+    @property
+    def functions(self) -> list[SSMFunction]:
+        return [func for func in (self.structure_function, self.content_function, self.inventory_function, self.combined_function) if func is not None]
 
 class DamageFunctionPackage:
 

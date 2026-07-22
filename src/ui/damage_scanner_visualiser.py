@@ -15,7 +15,7 @@ from shapely.geometry import box
 import geopandas as gpd
 
 from src.calc.damage_scanner_interface import DamageScannerInterface
-from src.calc.models import BuildingClassifierType, BuildingDataInput, DamageScannerInputs
+from src.calc.models import BuildingClassifierType, BuildingDataInput, CDCInputs
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
@@ -23,7 +23,7 @@ class DamageVisualiser:
 
     def __init__(
         self,
-        inputs: DamageScannerInputs,
+        inputs: CDCInputs,
         selected_return_period: int = 1000,
         surroundings_buffer_m: float = 5000,
     ):
@@ -269,7 +269,7 @@ class DamageVisualiser:
         return self.build_map(ead_raw, output_html=output_html)
 
 if __name__ == "__main__":
-    inputs = DamageScannerInputs(building_inputs=[
+    inputs = CDCInputs(building_inputs=[
         BuildingDataInput(address="Sterremosstraat 8, 1441 LT Purmerend", building_classifier_type=BuildingClassifierType.BAG),
         BuildingDataInput(address="68 Mont Saint Michel Purmerend, North Holland", building_classifier_type=BuildingClassifierType.BAG)
     ])

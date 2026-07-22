@@ -1,9 +1,7 @@
 import logging
-import random
 
 import pandas as pd
-
-from src.calc.models import BuildingClassifierType
+from src.calc.models import BuildingClass, BuildingData
 from src.bag.bag_ssm_classifier import BAGSSMClassifier
 
 from src.ssm.models import DamageFunctionPackage, IntensityUnit, SSMFunction, SSMFunctionMetadata
@@ -13,7 +11,6 @@ from src.ssm.ssm_function_loader import get_function_from_id, load_ssm_functions
 class DamageFunctionInterface:
 
     def __init__(self):
-        self.function_confidences: dict[str, DamageFunctionPackage] = {}
         self.damage_function_metadata: dict[int, SSMFunctionMetadata] = load_ssm_functions()
         self.filter_damage_functions()
         self.damage_function_packages = self.group_damage_functions()
@@ -26,7 +23,7 @@ class DamageFunctionInterface:
             # interpolate value
             sorted_depths = sorted(function.values.keys())
             for index, depth_value in enumerate(sorted_depths):
-                if depth > depth_value:
+                if depth_value > depth:
                     if index == 0:
                         return function.values[depth_value]
                     else:
@@ -96,33 +93,57 @@ class DamageFunctionInterface:
                     current_group.append(all_funcs[j])
             grouped_damage_functions.append(DamageFunctionPackage(current_group))
             grouped_functions.extend(current_group)
-        return {tuple(dp.ids): dp for dp in grouped_damage_functions}
+        return {id_: dp for dp in grouped_damage_functions for id_ in dp.ids}
 
-    def get_damage_functions(self) -> tuple[pd.DataFrame, dict[int, DamageFunctionPackage]]:
-        all_ids_with_confidence = [str(id) for ids in self.function_confidences.keys() for id in ids]
-        curves_to_include = [curve for curve in self.damage_functions.values() if str(curve.metadata.id) in all_ids_with_confidence or True]
-        column_headers = ["Depth"] + [str(curve.metadata.id) for curve in curves_to_include]
-        depth_values = list(curves_to_include)[0].values.keys() # this assumes all curves have the same depth values, which should be the case for SSM functions - this could do with a cleaner logic that includes rescaling though
+    def get_damage_functions(self, building_data: BuildingData) -> tuple[pd.DataFrame, dict[int, DamageFunctionPackage]]:
+        packages_to_include: set[DamageFunctionPackage] = set()
+        main_function, secondary_function = self.get_matching_functions_for_object(building_data)
+        if main_function is not None:
+            packages_to_include.add(main_function)
+        if secondary_function is not None:
+            packages_to_include.add(secondary_function)
+        column_headers = ["Depth"] + [str(id) for pkg in packages_to_include for id in pkg.ids]
         data = []
-        for depth in depth_values:
-            row = [depth] + [self.get_depth_value(depth, curve) for curve in curves_to_include]
+        all_curves = [curve for set_ in [set_ for pkg in packages_to_include for set_ in pkg.damage_function_sets] for curve in set_.functions]
+        for depth in range(0, 18000, 10): # 0 to 18 meters in 1 cm increments
+            depth /= 1000.0 # convert to meters
+            row = [depth] + [self.get_depth_value(depth, curve) for curve in all_curves]
             data.append(row)
         df = pd.DataFrame(data, columns=column_headers)
+        df.set_index("Depth", inplace=True)
+        df.fillna(1, inplace=True) # if the function has no value, assume maximum damage
         mapped_packages = {}
-        for curve in curves_to_include:
+        for curve in all_curves:
             package = next((pkg for pkg in self.damage_function_packages.values() if curve.metadata.id in pkg.ids), None)
             assert package
             mapped_packages[curve.metadata.id] = package
         return df, mapped_packages
     
-    def classify_bag_landuse(self, bag_data: pd.Series, max_functions: int = 5) -> list[DamageFunctionPackage]:
-        functions_with_confidences = self.bag_ssm_classifier.match_functions_to_bag_object(bag_data, max_functions=max_functions)
-        for func_package, confidence in functions_with_confidences:
-            self.function_confidences[tuple(func_package.ids)] = confidence
-        return [self.damage_function_packages[tuple(func_package.ids)] for func_package, confidence in functions_with_confidences]
+    def _get_function_for_sbi_code(self, sbi_code: str) -> DamageFunctionPackage | None:
+        # TODO: implement
+        return None
     
-    def get_matching_functions_for_object(self, row: pd.Series, max_functions: int = 5) -> list[DamageFunctionPackage]:
-        if row["classifier_used"] == BuildingClassifierType.BAG.value:
-            return self.classify_bag_landuse(row, max_functions=max_functions)
-        funcs = [random.choice(list(self.damage_function_packages.values())), random.choice(list(self.damage_function_packages.values()))]
-        return funcs
+    def _get_matching_function_for_class(self, building_class: BuildingClass, sbi_code: str | None) -> DamageFunctionPackage | None:
+        match building_class:
+            case BuildingClass.SINGLE_UNIT_RESIDENTIAL:
+                return self.damage_function_packages[7]
+            case BuildingClass.MULTI_UNIT_RESIDENTIAL:
+                return self.damage_function_packages[9] # TODO: make sure this is grouped with 395 and 396
+            case BuildingClass.INDUSTRIAL:
+                return self._get_function_for_sbi_code(sbi_code) # or generic industrial function
+            case BuildingClass.COMMERCIAL:
+                return self.damage_function_packages[391]
+            case BuildingClass.OFFICE:
+                return self.damage_function_packages[392]
+            case BuildingClass.OTHER:
+                return None
+
+    def get_matching_functions_for_object(self, building: BuildingData) -> tuple[DamageFunctionPackage, DamageFunctionPackage | None]:
+        main_function = self._get_matching_function_for_class(building.building_class, building.sbi_code)
+        secondary_function = None
+        if building.unique_ground_floor_class is not None:
+            secondary_function = self._get_matching_function_for_class(building.unique_ground_floor_class, building.sbi_code)
+        return main_function, secondary_function
+
+    def generate_description_for_function_id(self, function_id: int) -> str:
+        return "Placeholder description text"

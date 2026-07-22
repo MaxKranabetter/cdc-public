@@ -15,16 +15,15 @@ class BuildingDataInterface:
 
     def __init__(
         self,
-        inputs: list[BuildingDataInput],
+        input: BuildingDataInput,
         function_interface: DamageFunctionInterface,
         building_classifier_column: str = 'object_type',
         coverage_floodmap_path: str | None = None,
     ):
-        self.inputs = inputs
+        self.input = input
         self.functions = function_interface
         self.building_classifier_column = building_classifier_column
         self.coverage_floodmap_path = coverage_floodmap_path
-        assert len(inputs) > 0, "At least one building data input must be provided"
 
     def _get_address_data(self, address: str) -> gpd.GeoDataFrame:
         building_data, neighbourhood = get_building_polygons_from_address(
@@ -52,24 +51,18 @@ class BuildingDataInterface:
     def _load_shapefile_data(self, shapefile_path: str) -> gpd.GeoDataFrame:
         return gpd.read_file(shapefile_path)
     
-    def _match_classifier_column(self, gdf: gpd.GeoDataFrame, classifier_column: str, id: str) -> gpd.GeoDataFrame:
+    def match_classifier_column(self, gdf: gpd.GeoDataFrame, classifier_column: str, id: str, function_ids: list[str]) -> gpd.GeoDataFrame:
         if "osm_id" not in gdf.columns:
             gdf["osm_id"] = id # damagescanner requires this column to function, we can use it to easily identify buildings in the final output
-        gdf["classifier_used"] = classifier_column
-        def _get_function_names(row):
-            function_names = [str(func.metadata.id) for func in self.functions.damage_functions.values()]
-            if len(function_names) == 0:
-                raise ValueError(f"No matching damage functions found for feature: {row}")
-            return function_names
-        
-        gdf['temp_functions_list'] = gdf.apply(_get_function_names, axis=1)
+        gdf["classifier_used"] = classifier_column        
+        gdf['temp_functions_list'] = gdf.apply(lambda x: function_ids, axis=1)
         gdf = gdf.explode('temp_functions_list', ignore_index=True) # just calculate the values for all damage functions so that we can easily use them later without having to recalculate
         gdf[self.building_classifier_column] = gdf['temp_functions_list']
         gdf = gdf.drop(columns=['temp_functions_list'])
 
         return gdf
 
-    def _load_input(self, input: BuildingDataInput, index: int) -> gpd.GeoDataFrame:
+    def _load_input(self, input: BuildingDataInput) -> gpd.GeoDataFrame:
         if input.address is not None:
             gdf = self._get_address_data(input.address)
         elif input.shapefile_path is not None:
@@ -78,21 +71,20 @@ class BuildingDataInterface:
             gdf = input.geodataframe
         else:
             raise ValueError("Invalid building data input: must provide either address, shapefile path, or geodataframe")
-        return self._match_classifier_column(gdf, input.building_classifier_type.value, input.name or f"building_{index+1}")
+        return gdf
 
-    def get_building_data(self, as_fp: bool = True) -> str | gpd.GeoDataFrame:
+    def get_building_gdf(self) -> str | gpd.GeoDataFrame:
         """
         Loads and processes building data from the provided inputs, and stores it in a Shapefile in a temporary directory.
         Returns the path to the Shapefile.
         """
-        all_building_data = [self._load_input(input, index) for index, input in enumerate(self.inputs)]
-        combined_gdf = gpd.GeoDataFrame(pd.concat(all_building_data, ignore_index=True), crs=all_building_data[0].crs)
+        all_building_data = self._load_input(self.input)
+        return all_building_data
 
-        if not as_fp:
-            return combined_gdf
+        # if not as_fp:
+        #     return all_building_data
         
-        temp_dir = tempfile.mkdtemp()
-        tmp_shapefile_path = os.path.join(temp_dir, "combined_building_data.shp")
-        combined_gdf.to_file(tmp_shapefile_path, driver='ESRI Shapefile')
-        
-        return tmp_shapefile_path
+        # temp_dir = tempfile.mkdtemp()
+        # tmp_shapefile_path = os.path.join(temp_dir, "combined_building_data.shp")
+        # all_building_data.to_file(tmp_shapefile_path, driver='ESRI Shapefile')
+        # return tmp_shapefile_path

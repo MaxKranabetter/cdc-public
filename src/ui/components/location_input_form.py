@@ -7,11 +7,11 @@ from src.ssm.models import DamageFunctionPackage
 from src.calc.models import (
     BuildingClassifierType,
     BuildingDataInput,
-    DamageScannerInputs,
+    CDCInputs,
 )
 
-def _build_inputs(address: str) -> DamageScannerInputs:
-    return DamageScannerInputs(
+def _build_inputs(address: str) -> CDCInputs:
+    return CDCInputs(
         building_inputs=[
             BuildingDataInput(
                 address=address,
@@ -45,7 +45,7 @@ def location_input_form():
                 #st.session_state["map_html"] = fmap.get_root().render()
                 st.session_state["address"] = address
                 st.session_state["return_period"] = return_period
-                selected_curves: list[DamageFunctionPackage] = ds.get_best_functions_for_building(ds.building_data.iloc[0]['osm_id'], max_functions=5)
+                selected_curves: list[DamageFunctionPackage] = ds.get_best_functions_for_building(ds.building_gdf.iloc[0]['osm_id'], max_functions=5)
                 st.session_state["damage_functions"] = {fp.metadata.name: fp.ids for fp in selected_curves}
                 st.session_state["all_packages"] = {fp.metadata.name: fp for fp in ds.damage_function_package_mapping.values()}
                 st.session_state["function_metadata"] = ds.damage_function_interface.damage_function_metadata
