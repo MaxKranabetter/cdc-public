@@ -80,6 +80,9 @@ class DamageFunctionInterface:
         return False
     
     def group_damage_functions(self) -> dict[tuple[int], DamageFunctionPackage]:
+        OVERRIDE_PACKAGES = [
+            [9, 395, 396], # group all multi-unit residential functions together
+        ]
         grouped_damage_functions: list[DamageFunctionPackage] = []
         grouped_functions: list[SSMFunction] = []
         all_funcs = list(self.damage_functions.values())
@@ -87,6 +90,11 @@ class DamageFunctionInterface:
             current_function = all_funcs[i]
             if current_function in grouped_functions:
                 continue
+            # if any(current_function.metadata.id in pkg for pkg in OVERRIDE_PACKAGES):
+            #     functions_to_group = [self.damage_functions[str(id_)] for pkg in OVERRIDE_PACKAGES for id_ in pkg if current_function.metadata.id in pkg]
+            #     package = DamageFunctionPackage(functions_to_group)
+            #     grouped_damage_functions.append(package)
+            #     continue
             current_group = [current_function]
             for j in range(i+1, len(self.damage_functions)):
                 if self._do_functions_match(current_function, all_funcs[j]):

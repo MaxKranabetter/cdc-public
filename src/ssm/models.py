@@ -132,7 +132,6 @@ class DamageFunctionMetadata:
     l3_categories: list[L3FunctionCategory]
     method: SSMFunctionMethod
     scale: SSMFunctionScale
-    storeys_above_ground: tuple[StoreysAboveGround, StoreysAboveGround] | tuple[StoreysAboveGround] | None = None
     notes: str | None = None
     source_description: str | None = None
 
@@ -145,6 +144,7 @@ class DamageFunctionSetMetadata(DamageFunctionMetadata):
 class SSMFunctionMetadata(DamageFunctionSetMetadata):
     id: int
     function_type: SSMFunctionType
+    storeys_above_ground: tuple[StoreysAboveGround, StoreysAboveGround] | tuple[StoreysAboveGround] | None = None
 
 class IntensityUnit(Enum):
     DEPTH_METERS = "Depth (m)"
@@ -168,7 +168,7 @@ class DamageFunctionSet:
     def get_metadata(self) -> DamageFunctionSetMetadata | None:
         for func in (self.structure_function, self.content_function, self.inventory_function, self.combined_function):
             if func is not None:
-                fields_to_remove = ["function_type", "id"]
+                fields_to_remove = ["function_type", "id", "storeys_above_ground"]
                 metadata_dict = {field: getattr(func.metadata, field) for field in func.metadata.__dataclass_fields__ if field not in fields_to_remove}
                 return DamageFunctionSetMetadata(**metadata_dict)
         return None
@@ -229,12 +229,12 @@ class DamageFunctionPackage:
         combined_functions = [df for df in self._damage_functions if df.metadata.function_type == SSMFunctionType.COMBINED]
 
         if len(combined_functions) > 0:
-            if len(combined_functions) > 1:
-                raise ValueError("Multiple combined damage functions found in package, but only one is allowed.")
+            if len(inventory_functions) + len(content_functions) + len(structure_functions) > 1:
+                raise ValueError("If a package contains combined damage functions, it cannot contain any other type of damage functions.")
             return [
                 DamageFunctionSet(
-                    combined_function=combined_functions[0]
-                )
+                    combined_function=combined_function
+                ) for combined_function in combined_functions
             ]
 
         if len(structure_functions) == 0 and len(content_functions) == 0 and len(inventory_functions) == 0:
