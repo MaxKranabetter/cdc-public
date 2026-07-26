@@ -38,25 +38,30 @@ class DamageScannerInterface:
 
     def __init__(self, inputs: CDCInputs):
         self.damage_scanner = None
+        self.warnings = defaultdict(list)
         self.object_col = 'object_type' # this should be the name of the column in the building data that contains the object/landuse type, which is used to link to the damage curves
-        self.damage_function_interface = DamageFunctionInterface()
-        self.floodmap_interface = FloodmapInterface(override_floodmaps=inputs.override_floodmaps)
+        self.damage_function_interface = DamageFunctionInterface(self.warnings)
+        self.floodmap_interface = FloodmapInterface(override_floodmaps=inputs.override_floodmaps, warnings=self.warnings)
         self.building_data_interface = BuildingDataInterface(
             inputs.building_input,
             function_interface=self.damage_function_interface,
             coverage_floodmap_path=self.floodmap_interface.get_representative_floodmap_path(),
+            warnings=self.warnings
         )
-        self.max_damage_interface = MaxDamageInterface(object_col=self.object_col)
+        self.max_damage_interface = MaxDamageInterface(object_col=self.object_col, warnings=self.warnings)
 
     def _init_damage_scanner_data(self):
+        self.warnings.clear()
         self.building_gdf = self.building_data_interface.get_building_gdf()
         self.building_data = [self.damage_function_interface.bag_ssm_classifier.determine_building_data(f"building_{index}", building_row) for index, building_row in self.building_gdf.iterrows()][0]
         self.damage_functions_df, self.damage_function_package_mapping = self.damage_function_interface.get_damage_functions(self.building_data)
+        if self.damage_functions_df is None:
+            return None
         self.building_gdf = self.building_data_interface.match_classifier_column(
             self.building_gdf,
             self.building_data_interface.building_classifier_column,
             "building_0",
-            [str(id) for pkg in self.damage_function_package_mapping.values() for id in pkg.ids],
+            list({str(id) for pkg in self.damage_function_package_mapping.values() for id in pkg.ids}) # only use each function once (for multiple upper floors we account for it in the max damage, not the damage functions)
         )
         self.max_damage_data, self.price_levels = self.max_damage_interface.get_max_damage_data(
             selected_curves=[curve for curve in self.damage_function_interface.damage_functions.values() if str(curve.metadata.id) in self.damage_functions_df.columns],
@@ -66,6 +71,8 @@ class DamageScannerInterface:
 
     def _get_ead(self) -> pd.DataFrame | None:
         self._init_damage_scanner_data()
+        if self.damage_functions_df is None:
+            return None
         floodmap_dict = self.floodmap_interface.get_floodmap_dict()
         floodevents = {}
         for return_period, floodmap_fp in tqdm.tqdm(floodmap_dict.items(), desc="Calculating EAD", total=len(floodmap_dict)):
@@ -158,8 +165,16 @@ class DamageScannerInterface:
     def get_damages(self) -> CDCOutput:
         damage_summary = self._get_ead()
 
+        if damage_summary is None:
+            return CDCOutput(
+                building=self.building_data,
+                flood_events_considered=[],
+                annualised_expected_damages=[],
+                warnings=self.warnings["general"]
+            )
+
         def _flood_event_from_damage_summary(data: dict) -> FloodEvent:
-            warnings = {function_id: ["Warnings have not been implemented yet"] for function_id in data["damages"].keys()} # TODO: implement
+            warnings = {function_id: self.warnings[int(function_id)] for function_id in data["damages"].keys()}
             return FloodEvent(
                 return_period=round(1 / data["return_period"]),
                 unique_flood_depths=[FloodDepth(value=depth, area_coverage=coverage) for depth, coverage in data["flood_depths"]],
@@ -167,7 +182,8 @@ class DamageScannerInterface:
                     damage_description=self.damage_function_interface.generate_description_for_function_id(key),
                     value=value,
                     warnings=warnings[key],
-                    price_level_year=self.price_levels.get(key)
+                    price_level_year=self.price_levels[key],
+                    absolute_maximum_damage=self.max_damage_data.loc[self.max_damage_data['object_type'] == key, 'damage'].iloc[0] * self.building_data.polygon.area
                 ) for key, value in data["damages"].items()]
             )
 
@@ -178,11 +194,8 @@ class DamageScannerInterface:
                 DamageEstimate(
                     damage_description=self.damage_function_interface.generate_description_for_function_id(key),
                     value=value,
-                    warnings=["Warnings have not been implemented yet"],
-                    price_level_year=self.price_levels.get(key)
+                    warnings=self.warnings[int(key)],
+                    price_level_year=self.price_levels.get(key),
+                    absolute_maximum_damage=self.max_damage_data.loc[self.max_damage_data['object_type'] == key, 'damage'].iloc[0] * self.building_data.polygon.area
                 ) for key, value in damage_summary["annualised_expected_damage"].items()]
         )
-    
-    def get_best_functions_for_building(self, building_osm_id: setattr, max_functions: int = 5) -> list[DamageFunctionPackage]:
-        building_row = self.building_gdf[self.building_gdf['osm_id'] == building_osm_id].iloc[0]
-        return self.damage_function_interface.get_matching_functions_for_object(building_row, max_functions=max_functions)

@@ -93,6 +93,7 @@ class DamageEstimate(BaseModel):
     price_level_year: int
     currency: Literal["EUR"] = "EUR"
     value: float = 0.0
+    absolute_maximum_damage: float = 0.0
 
     warnings: list[str] = []
 
@@ -112,7 +113,8 @@ class DamageEstimate(BaseModel):
             currency="EUR",
             value=total_damage_value,
             warnings=warnings,
-            price_level_year=max(damage.price_level_year for damage in damage_estimates)
+            price_level_year=max(damage.price_level_year for damage in damage_estimates),
+            absolute_maximum_damage=sum(damage.absolute_maximum_damage for damage in damage_estimates)
         )
 
 class FloodEvent(BaseModel):
@@ -136,6 +138,8 @@ class CDCOutput(BaseModel):
     building: BuildingData
     flood_events_considered: list[FloodEvent]
     annualised_expected_damages: list[DamageEstimate]
+
+    warnings: list[str] = []
 
     @property
     def total_annualised_expected_damage(self) -> DamageEstimate:

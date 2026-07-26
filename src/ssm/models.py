@@ -230,7 +230,7 @@ class DamageFunctionPackage:
 
         if len(combined_functions) > 0:
             if len(inventory_functions) + len(content_functions) + len(structure_functions) > 1:
-                raise ValueError("If a package contains combined damage functions, it cannot contain any other type of damage functions.")
+                pass#raise ValueError("If a package contains combined damage functions, it cannot contain any other type of damage functions.")
             return [
                 DamageFunctionSet(
                     combined_function=combined_function

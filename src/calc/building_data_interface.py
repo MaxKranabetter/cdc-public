@@ -17,6 +17,7 @@ class BuildingDataInterface:
         self,
         input: BuildingDataInput,
         function_interface: DamageFunctionInterface,
+        warnings: dict[str, list[str]],
         building_classifier_column: str = 'object_type',
         coverage_floodmap_path: str | None = None,
     ):
@@ -24,6 +25,7 @@ class BuildingDataInterface:
         self.functions = function_interface
         self.building_classifier_column = building_classifier_column
         self.coverage_floodmap_path = coverage_floodmap_path
+        self.warnings = warnings
 
     def _get_address_data(self, address: str) -> gpd.GeoDataFrame:
         building_data, neighbourhood = get_building_polygons_from_address(

@@ -10,7 +10,8 @@ from src.ssm.ssm_function_loader import get_function_from_id, load_ssm_functions
 
 class DamageFunctionInterface:
 
-    def __init__(self):
+    def __init__(self, warnings: dict[str, list[str]]):
+        self.warnings = warnings
         self.damage_function_metadata: dict[int, SSMFunctionMetadata] = load_ssm_functions()
         self.filter_damage_functions()
         self.damage_function_packages = self.group_damage_functions()
@@ -90,11 +91,12 @@ class DamageFunctionInterface:
             current_function = all_funcs[i]
             if current_function in grouped_functions:
                 continue
-            # if any(current_function.metadata.id in pkg for pkg in OVERRIDE_PACKAGES):
-            #     functions_to_group = [self.damage_functions[str(id_)] for pkg in OVERRIDE_PACKAGES for id_ in pkg if current_function.metadata.id in pkg]
-            #     package = DamageFunctionPackage(functions_to_group)
-            #     grouped_damage_functions.append(package)
-            #     continue
+            if any(current_function.metadata.id in pkg for pkg in OVERRIDE_PACKAGES):
+                functions_to_group = [self.damage_functions[str(id_)] for pkg in OVERRIDE_PACKAGES for id_ in pkg if current_function.metadata.id in pkg]
+                package = DamageFunctionPackage(functions_to_group)
+                grouped_damage_functions.append(package)
+                grouped_functions.extend(functions_to_group)
+                continue
             current_group = [current_function]
             for j in range(i+1, len(self.damage_functions)):
                 if self._do_functions_match(current_function, all_funcs[j]):
@@ -106,8 +108,10 @@ class DamageFunctionInterface:
     def get_damage_functions(self, building_data: BuildingData) -> tuple[pd.DataFrame, dict[int, DamageFunctionPackage]]:
         packages_to_include: set[DamageFunctionPackage] = set()
         main_function, secondary_function = self.get_matching_functions_for_object(building_data)
-        if main_function is not None:
-            packages_to_include.add(main_function)
+        if main_function is None:
+            self.warnings["general"].append(f"No matching damage function found for building. This is most likely due to the building typology not being supported ({building_data.building_class}).")
+            return None, None
+        packages_to_include.add(main_function)
         if secondary_function is not None:
             packages_to_include.add(secondary_function)
         column_headers = ["Depth"] + [str(id) for pkg in packages_to_include for id in pkg.ids]
@@ -134,9 +138,10 @@ class DamageFunctionInterface:
     def _get_matching_function_for_class(self, building_class: BuildingClass, sbi_code: str | None) -> DamageFunctionPackage | None:
         match building_class:
             case BuildingClass.SINGLE_UNIT_RESIDENTIAL:
+                self.warnings[7].append("Using the single-unit residential damage function from SSM for this building. This function is known to underestimate damages at flood depths of up to 2m and overestimate damages at flood depths greater than 3m since it assumes total structural loss at 5m.")
                 return self.damage_function_packages[7]
             case BuildingClass.MULTI_UNIT_RESIDENTIAL:
-                return self.damage_function_packages[9] # TODO: make sure this is grouped with 395 and 396
+                return self.damage_function_packages[9]
             case BuildingClass.INDUSTRIAL:
                 return self._get_function_for_sbi_code(sbi_code) # or generic industrial function
             case BuildingClass.COMMERCIAL:
@@ -154,4 +159,4 @@ class DamageFunctionInterface:
         return main_function, secondary_function
 
     def generate_description_for_function_id(self, function_id: int) -> str:
-        return "Placeholder description text"
+        return f"Placeholder description text for function {function_id}"

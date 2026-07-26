@@ -6,9 +6,10 @@ from src.calc.file_mapping import DEFAULT_FLOODMAPS, FloodScenario
 
 class FloodmapInterface:
 
-    def __init__(self, override_floodmaps: dict[int, str] | None = None):
+    def __init__(self, warnings: dict[str, list[str]], override_floodmaps: dict[int, str] | None = None):
         floodmaps = DEFAULT_FLOODMAPS[FloodScenario.BASELINE] if override_floodmaps is None else override_floodmaps
         self.available_floodmaps = self._resolve_floodmap_paths(floodmaps)
+        self.warnings = warnings
 
     def _resolve_floodmap_paths(self, floodmaps: dict[int, str]) -> dict[int, str]:
         project_root = Path(__file__).resolve().parents[2]

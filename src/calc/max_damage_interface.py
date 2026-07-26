@@ -23,9 +23,10 @@ MAX_FLOOR_COUNT_FOR_DAMAGE_CALCULATION = 6
 
 class MaxDamageInterface:
 
-    def __init__(self, object_col: str = 'obj_type'):
+    def __init__(self, warnings: dict[str, list[str]], object_col: str = 'obj_type'):
         self.object_col = object_col
         self.damage_baseline_year = 2022
+        self.warnings = warnings
         self.cbs_cpi_codes_for_inflation_adjustment = {
             BuildingClass.SINGLE_UNIT_RESIDENTIAL: {
                 SSMFunctionType.STRUCTURE: ["041000", "042000", "043000", "044000"],
@@ -122,7 +123,11 @@ class MaxDamageInterface:
                 building_class = building_data.building_class
             base_unit_damage, base_price_level = self.get_unit_damage_for_building_class(building_class, function.metadata.function_type, year_for_inflation_adjustment)
         except ValueError as e:
-            if function.metadata.function_type == SSMFunctionType.COMBINED and building_data.building_class in [BuildingClass.SINGLE_UNIT_RESIDENTIAL, BuildingClass.MULTI_UNIT_RESIDENTIAL]:
+            if function.metadata.id in [9, 395, 396] and building_data.building_class in [BuildingClass.SINGLE_UNIT_RESIDENTIAL, BuildingClass.MULTI_UNIT_RESIDENTIAL]:
+                if function.metadata.id != 396:
+                    relevant_floor_count = 1 # 9 = ground floor and 395 = first floor (both only relate to one floor)
+                else:
+                    relevant_floor_count = min(MAX_FLOOR_COUNT_FOR_DAMAGE_CALCULATION, building_data.floor_count) - 2 # 396 = upper floors (all floors above the first and ground floor, thus subtract those)
                 structure_unit_damage, structure_price_level = self.get_unit_damage_for_building_class(building_data.building_class, SSMFunctionType.STRUCTURE, year_for_inflation_adjustment)
                 content_unit_damage, content_price_level = self.get_unit_damage_for_building_class(building_data.building_class, SSMFunctionType.CONTENT, year_for_inflation_adjustment)
                 structure_damage = building_footprint_area * structure_unit_damage * relevant_floor_count
