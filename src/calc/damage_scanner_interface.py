@@ -4,17 +4,16 @@ from numpy import trapezoid
 import pandas as pd
 from damagescanner.core import DamageScanner
 
-import geopandas as gpd
 import pyproj
 import rasterio
 import tqdm
 
+from src.calc.file_mapping import FloodType
 from src.calc.building_data_interface import BuildingDataInterface
 from src.calc.damage_function_interface import DamageFunctionInterface
 from src.calc.floodmap_interface import FloodmapInterface
 from src.calc.max_damage_interface import MaxDamageInterface
 from src.calc.models import CDCInputs, CDCOutput, DamageEstimate, FloodDepth, FloodEvent
-from src.ssm.models import DamageFunctionPackage
 
 def _crs_is_meters(crs: pyproj.CRS) -> bool:
     """Check if a CRS uses meters as its unit.
@@ -41,7 +40,7 @@ class DamageScannerInterface:
         self.warnings = defaultdict(list)
         self.object_col = 'object_type' # this should be the name of the column in the building data that contains the object/landuse type, which is used to link to the damage curves
         self.damage_function_interface = DamageFunctionInterface(self.warnings)
-        self.floodmap_interface = FloodmapInterface(override_floodmaps=inputs.override_floodmaps, warnings=self.warnings)
+        self.floodmap_interface = FloodmapInterface(flood_type=FloodType.OVERLAST if inputs.is_overlast else FloodType.OVERSTROMING, override_floodmaps=inputs.override_floodmaps, warnings=self.warnings)
         self.building_data_interface = BuildingDataInterface(
             inputs.building_input,
             function_interface=self.damage_function_interface,
@@ -52,8 +51,8 @@ class DamageScannerInterface:
 
     def _init_damage_scanner_data(self):
         self.warnings.clear()
-        self.building_gdf = self.building_data_interface.get_building_gdf()
-        self.building_data = [self.damage_function_interface.bag_ssm_classifier.determine_building_data(f"building_{index}", building_row) for index, building_row in self.building_gdf.iterrows()][0]
+        self.building_gdf = self.building_data_interface.get_building_gdf(is_overlast=self.floodmap_interface.flood_type == FloodType.OVERLAST)
+        self.building_data = [self.damage_function_interface.bag_ssm_classifier.determine_building_data(f"building_{index}", building_row, self.building_data_interface.input.address) for index, building_row in self.building_gdf.iterrows()][0]
         self.damage_functions_df, self.damage_function_package_mapping = self.damage_function_interface.get_damage_functions(self.building_data)
         if self.damage_functions_df is None:
             return None
@@ -181,6 +180,7 @@ class DamageScannerInterface:
                 all_damages=[DamageEstimate(
                     damage_description=self.damage_function_interface.generate_description_for_function_id(key),
                     value=value,
+                    ssm_function_id=int(key),
                     warnings=warnings[key],
                     price_level_year=self.price_levels[key],
                     absolute_maximum_damage=self.max_damage_data.loc[self.max_damage_data['object_type'] == key, 'damage'].iloc[0] * self.building_data.polygon.area
@@ -194,6 +194,7 @@ class DamageScannerInterface:
                 DamageEstimate(
                     damage_description=self.damage_function_interface.generate_description_for_function_id(key),
                     value=value,
+                    ssm_function_id=int(key),
                     warnings=self.warnings[int(key)],
                     price_level_year=self.price_levels.get(key),
                     absolute_maximum_damage=self.max_damage_data.loc[self.max_damage_data['object_type'] == key, 'damage'].iloc[0] * self.building_data.polygon.area

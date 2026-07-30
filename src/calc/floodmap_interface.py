@@ -1,13 +1,14 @@
 from pathlib import Path
 
 from src.common.raster_utils import get_value_at_coordinate
-from src.calc.file_mapping import DEFAULT_FLOODMAPS, FloodScenario
+from src.calc.file_mapping import DEFAULT_FLOODMAPS, FloodScenario, FloodType
 
 
 class FloodmapInterface:
 
-    def __init__(self, warnings: dict[str, list[str]], override_floodmaps: dict[int, str] | None = None):
-        floodmaps = DEFAULT_FLOODMAPS[FloodScenario.BASELINE] if override_floodmaps is None else override_floodmaps
+    def __init__(self, flood_type: FloodType, warnings: dict[str, list[str]], override_floodmaps: dict[int, str] | None = None):
+        self.flood_type = flood_type
+        floodmaps = DEFAULT_FLOODMAPS[flood_type][FloodScenario.BASELINE] if override_floodmaps is None else override_floodmaps
         self.available_floodmaps = self._resolve_floodmap_paths(floodmaps)
         self.warnings = warnings
 
