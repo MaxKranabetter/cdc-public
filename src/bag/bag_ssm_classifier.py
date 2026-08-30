@@ -120,4 +120,5 @@ class BAGSSMClassifier:
             unique_ground_floor_class=unique_ground_floor_class,
             floor_count=bag_data.get('building_floors', 1) or 1,
             input_address=address
+            input_address=address
         )

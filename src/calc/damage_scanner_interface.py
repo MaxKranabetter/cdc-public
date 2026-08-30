@@ -42,6 +42,7 @@ class DamageScannerInterface:
         self.object_col = 'object_type' # this should be the name of the column in the building data that contains the object/landuse type, which is used to link to the damage curves
         self.damage_function_interface = DamageFunctionInterface(self.warnings)
         self.floodmap_interface = FloodmapInterface(flood_type=FloodType.OVERLAST if inputs.is_overlast else FloodType.OVERSTROMING, override_floodmaps=inputs.override_floodmaps, warnings=self.warnings)
+        self.floodmap_interface = FloodmapInterface(flood_type=FloodType.OVERLAST if inputs.is_overlast else FloodType.OVERSTROMING, override_floodmaps=inputs.override_floodmaps, warnings=self.warnings)
         self.building_data_interface = BuildingDataInterface(
             inputs.building_input,
             function_interface=self.damage_function_interface,
@@ -201,6 +202,7 @@ class DamageScannerInterface:
                     damage_description=self.damage_function_interface.generate_description_for_function_id(key),
                     value=value,
                     ssm_function_id=int(key),
+                    ssm_function_id=int(key),
                     warnings=warnings[key],
                     price_level_year=self.price_levels[key],
                     absolute_maximum_damage=self.max_damage_data.loc[self.max_damage_data['object_type'] == key, 'damage'].iloc[0] * self.building_data.polygon.area
@@ -214,6 +216,7 @@ class DamageScannerInterface:
                 DamageEstimate(
                     damage_description=self.damage_function_interface.generate_description_for_function_id(key),
                     value=value,
+                    ssm_function_id=int(key),
                     ssm_function_id=int(key),
                     warnings=self.warnings[int(key)],
                     price_level_year=self.price_levels.get(key),

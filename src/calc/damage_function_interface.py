@@ -2,6 +2,7 @@ import logging
 
 import pandas as pd
 from src.calc.max_damage_interface import MAX_FLOOR_COUNT_FOR_DAMAGE_CALCULATION
+from src.calc.max_damage_interface import MAX_FLOOR_COUNT_FOR_DAMAGE_CALCULATION
 from src.calc.models import BuildingClass, BuildingData
 from src.bag.bag_ssm_classifier import BAGSSMClassifier
 
@@ -151,7 +152,11 @@ class DamageFunctionInterface:
             case BuildingClass.INDUSTRIAL:
                 self.warnings[393].append("Using the generic FIAT Industriefunctie. Industrial buildings are highly variable in construction and use, so this function may not accurately represent the specific building's damage potential.")
                 return self.damage_function_packages[393]
+                self.warnings[393].append("Using the generic FIAT Industriefunctie. Industrial buildings are highly variable in construction and use, so this function may not accurately represent the specific building's damage potential.")
+                return self.damage_function_packages[393]
             case BuildingClass.COMMERCIAL:
+                return self.damage_function_packages[392]
+            case BuildingClass.OFFICE:
                 return self.damage_function_packages[392]
             case BuildingClass.OFFICE:
                 return self.damage_function_packages[391]
@@ -160,12 +165,17 @@ class DamageFunctionInterface:
 
     def get_matching_functions_for_object(self, building: BuildingData) -> tuple[DamageFunctionPackage, DamageFunctionPackage | None]:
         main_function = self._get_matching_function_for_class(building.building_class)
+        main_function = self._get_matching_function_for_class(building.building_class)
         secondary_function = None
         if building.unique_ground_floor_class is not None:
+            secondary_function = self._get_matching_function_for_class(building.unique_ground_floor_class)
             secondary_function = self._get_matching_function_for_class(building.unique_ground_floor_class)
         return main_function, secondary_function
 
     def generate_description_for_function_id(self, function_id: int) -> str:
+        function_id = int(function_id)
+        if function_id in FUNCTION_DESCRIPTIONS:
+            return FUNCTION_DESCRIPTIONS[function_id]
         function_id = int(function_id)
         if function_id in FUNCTION_DESCRIPTIONS:
             return FUNCTION_DESCRIPTIONS[function_id]
