@@ -143,6 +143,28 @@ class PolygonFeature(SpatialFeature):
     
     def to_shapely(self):
         return [Polygon(part) for part in self.coordinates]
+
+    def get_bounding_box(self) -> tuple[float, float, float, float]:
+        """Recursively extracts min and max coordinates from nested GeoJSON lists."""
+        xs = []
+        ys = []
+        
+        def extract_points(item):
+            # Base case: item is a coordinate pair [x, y] (or [x, y, z])
+            if isinstance(item, (list, tuple)) and len(item) >= 2 and isinstance(item[0], (int, float)):
+                xs.append(item[0])
+                ys.append(item[1])
+            # Recursive case: item is a nested list (e.g., Polygons, MultiPolygons)
+            elif isinstance(item, (list, tuple)):
+                for sub_item in item:
+                    extract_points(sub_item)
+                    
+        extract_points(self.coordinates)
+        
+        if not xs or not ys:
+            raise ValueError("Could not extract coordinates from the geometry.")
+            
+        return min(xs), min(ys), max(xs), max(ys)
     
 class PointFeature(SpatialFeature):
     type: FeatureType = FeatureType.POINT

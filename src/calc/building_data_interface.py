@@ -27,12 +27,13 @@ class BuildingDataInterface:
         self.coverage_floodmap_path = coverage_floodmap_path
         self.warnings = warnings
 
-    def _get_address_data(self, address: str) -> gpd.GeoDataFrame:
+    def _get_address_data(self, address: str, is_overlast: bool) -> gpd.GeoDataFrame:
         building_data, neighbourhood = get_building_polygons_from_address(
             address,
             response_limit=25,
             search_box_size=50,
             coverage_floodmap_path=self.coverage_floodmap_path,
+            is_overlast=is_overlast,
         )
         bag_3d_data = get_3d_bag_data_for_pand(building_data.pand.properties.identificatie)
         properties = building_data.pand.properties.model_dump()
@@ -64,9 +65,9 @@ class BuildingDataInterface:
 
         return gdf
 
-    def _load_input(self, input: BuildingDataInput) -> gpd.GeoDataFrame:
+    def _load_input(self, input: BuildingDataInput, is_overlast: bool) -> gpd.GeoDataFrame:
         if input.address is not None:
-            gdf = self._get_address_data(input.address)
+            gdf = self._get_address_data(input.address, is_overlast=is_overlast)
         elif input.shapefile_path is not None:
             gdf = self._load_shapefile_data(input.shapefile_path)
         elif input.geodataframe is not None:
@@ -75,12 +76,12 @@ class BuildingDataInterface:
             raise ValueError("Invalid building data input: must provide either address, shapefile path, or geodataframe")
         return gdf
 
-    def get_building_gdf(self) -> str | gpd.GeoDataFrame:
+    def get_building_gdf(self, is_overlast: bool) -> str | gpd.GeoDataFrame:
         """
         Loads and processes building data from the provided inputs, and stores it in a Shapefile in a temporary directory.
         Returns the path to the Shapefile.
         """
-        all_building_data = self._load_input(self.input)
+        all_building_data = self._load_input(self.input, is_overlast=is_overlast)
         return all_building_data
 
         # if not as_fp:

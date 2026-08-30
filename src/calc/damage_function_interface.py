@@ -1,12 +1,45 @@
 import logging
 
 import pandas as pd
+from src.calc.max_damage_interface import MAX_FLOOR_COUNT_FOR_DAMAGE_CALCULATION
 from src.calc.models import BuildingClass, BuildingData
 from src.bag.bag_ssm_classifier import BAGSSMClassifier
 
 from src.ssm.models import DamageFunctionPackage, IntensityUnit, SSMFunction, SSMFunctionMetadata
 from src.ssm.ssm_function_loader import get_function_from_id, load_ssm_functions
 
+FUNCTION_DESCRIPTIONS = {
+    7: "Single-unit residential damage function. Describes the entire building across all floors. Based on the original 2011 release of SSM, known to be inaccurate in many cases.",
+    9: "Ground floor residential damage function. Specifically relates to housing units on the ground floor of multi-unit residential buildings.",
+    395: "First floor residential damage function. Specifically relates to housing units on the first floor of multi-unit residential buildings.",
+    396: f"Upper floor residential damage function. Specifically relates to housing units on all floors (up to the {MAX_FLOOR_COUNT_FOR_DAMAGE_CALCULATION}th floor) above the first and ground floor of multi-unit residential buildings combined.",
+    391: "Office damage function.",
+    392: "Commercial (stores) damage function.",
+    393: "Industrial damage function. Generic function for industrial buildings.",
+}
+
+def get_depth_value(depth: float, function: SSMFunction) -> float:
+    if depth in function.values:
+        return function.values[depth]
+    else:
+        # interpolate value
+        sorted_depths = sorted(function.values.keys())
+        for index, depth_value in enumerate(sorted_depths):
+            if depth_value > depth:
+                if index == 0:
+                    return function.values[depth_value]
+                else:
+                    lower_value = function.values[sorted_depths[index-1]]
+                    upper_value = function.values[depth_value]
+                    # linear interpolation
+                    depth_diff = depth_value - sorted_depths[index-1]
+                    value_diff = upper_value - lower_value
+                    percent_diff = (depth - sorted_depths[index-1]) / depth_diff
+                    if depth_diff == 0:
+                        return lower_value
+                    else:
+                        return lower_value + (percent_diff * value_diff)
+    return float('nan')
 
 class DamageFunctionInterface:
 
@@ -16,29 +49,6 @@ class DamageFunctionInterface:
         self.filter_damage_functions()
         self.damage_function_packages = self.group_damage_functions()
         self.bag_ssm_classifier = BAGSSMClassifier(self.damage_function_packages)
-
-    def get_depth_value(self, depth: float, function: SSMFunction) -> float:
-        if depth in function.values:
-            return function.values[depth]
-        else:
-            # interpolate value
-            sorted_depths = sorted(function.values.keys())
-            for index, depth_value in enumerate(sorted_depths):
-                if depth_value > depth:
-                    if index == 0:
-                        return function.values[depth_value]
-                    else:
-                        lower_value = function.values[sorted_depths[index-1]]
-                        upper_value = function.values[depth_value]
-                        # linear interpolation
-                        depth_diff = depth_value - sorted_depths[index-1]
-                        value_diff = upper_value - lower_value
-                        percent_diff = (depth - sorted_depths[index-1]) / depth_diff
-                        if depth_diff == 0:
-                            return lower_value
-                        else:
-                            return lower_value + (percent_diff * value_diff)
-        return float('nan')
 
     def filter_damage_functions(self) -> dict[str, SSMFunction]:
         useable_curves: list[SSMFunction] = []
@@ -119,7 +129,7 @@ class DamageFunctionInterface:
         all_curves = [curve for set_ in [set_ for pkg in packages_to_include for set_ in pkg.damage_function_sets] for curve in set_.functions]
         for depth in range(0, 18000, 10): # 0 to 18 meters in 1 cm increments
             depth /= 1000.0 # convert to meters
-            row = [depth] + [self.get_depth_value(depth, curve) for curve in all_curves]
+            row = [depth] + [get_depth_value(depth, curve) for curve in all_curves]
             data.append(row)
         df = pd.DataFrame(data, columns=column_headers)
         df.set_index("Depth", inplace=True)
@@ -131,11 +141,7 @@ class DamageFunctionInterface:
             mapped_packages[curve.metadata.id] = package
         return df, mapped_packages
     
-    def _get_function_for_sbi_code(self, sbi_code: str) -> DamageFunctionPackage | None:
-        # TODO: implement
-        return None
-    
-    def _get_matching_function_for_class(self, building_class: BuildingClass, sbi_code: str | None) -> DamageFunctionPackage | None:
+    def _get_matching_function_for_class(self, building_class: BuildingClass) -> DamageFunctionPackage | None:
         match building_class:
             case BuildingClass.SINGLE_UNIT_RESIDENTIAL:
                 self.warnings[7].append("Using the single-unit residential damage function from SSM for this building. This function is known to underestimate damages at flood depths of up to 2m and overestimate damages at flood depths greater than 3m since it assumes total structural loss at 5m.")
@@ -143,20 +149,24 @@ class DamageFunctionInterface:
             case BuildingClass.MULTI_UNIT_RESIDENTIAL:
                 return self.damage_function_packages[9]
             case BuildingClass.INDUSTRIAL:
-                return self._get_function_for_sbi_code(sbi_code) # or generic industrial function
+                self.warnings[393].append("Using the generic FIAT Industriefunctie. Industrial buildings are highly variable in construction and use, so this function may not accurately represent the specific building's damage potential.")
+                return self.damage_function_packages[393]
             case BuildingClass.COMMERCIAL:
-                return self.damage_function_packages[391]
-            case BuildingClass.OFFICE:
                 return self.damage_function_packages[392]
+            case BuildingClass.OFFICE:
+                return self.damage_function_packages[391]
             case BuildingClass.OTHER:
                 return None
 
     def get_matching_functions_for_object(self, building: BuildingData) -> tuple[DamageFunctionPackage, DamageFunctionPackage | None]:
-        main_function = self._get_matching_function_for_class(building.building_class, building.sbi_code)
+        main_function = self._get_matching_function_for_class(building.building_class)
         secondary_function = None
         if building.unique_ground_floor_class is not None:
-            secondary_function = self._get_matching_function_for_class(building.unique_ground_floor_class, building.sbi_code)
+            secondary_function = self._get_matching_function_for_class(building.unique_ground_floor_class)
         return main_function, secondary_function
 
     def generate_description_for_function_id(self, function_id: int) -> str:
+        function_id = int(function_id)
+        if function_id in FUNCTION_DESCRIPTIONS:
+            return FUNCTION_DESCRIPTIONS[function_id]
         return f"Placeholder description text for function {function_id}"

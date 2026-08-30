@@ -3,7 +3,7 @@ from datetime import date
 import pandas as pd
 
 from src.calc.models import BuildingClass, BuildingData
-from src.ssm.models import L1FunctionCategory, L2FunctionCategory, SSMFunction, SSMFunctionType
+from src.ssm.models import L1FunctionCategory, SSMFunction, SSMFunctionType
 from src.cbs.cpi import get_cpi_multiplier, get_cpi_weight
 
 # SSM max damage values from 2022:
@@ -114,6 +114,8 @@ class MaxDamageInterface:
         relevant_floor_count = min(MAX_FLOOR_COUNT_FOR_DAMAGE_CALCULATION, building_data.floor_count)
         if ground_floor_unit_damage is not None:
             relevant_floor_count -= 1 # ground floor is counted separately
+            if function.metadata.id == 9:
+                return 0, date.today().year - 1 # 9 is the residential ground floor function - if there is a unique ground floor, we don't count residential on the ground floor
 
         try:
             if ground_floor_unit_damage is not None and function.metadata.l1_category != L1FunctionCategory.RESIDENTIAL:
@@ -124,17 +126,20 @@ class MaxDamageInterface:
             base_unit_damage, base_price_level = self.get_unit_damage_for_building_class(building_class, function.metadata.function_type, year_for_inflation_adjustment)
         except ValueError as e:
             if function.metadata.id in [9, 395, 396] and building_data.building_class in [BuildingClass.SINGLE_UNIT_RESIDENTIAL, BuildingClass.MULTI_UNIT_RESIDENTIAL]:
-                if function.metadata.id != 396:
-                    relevant_floor_count = 1 # 9 = ground floor and 395 = first floor (both only relate to one floor)
-                else:
-                    relevant_floor_count = min(MAX_FLOOR_COUNT_FOR_DAMAGE_CALCULATION, building_data.floor_count) - 2 # 396 = upper floors (all floors above the first and ground floor, thus subtract those)
-                structure_unit_damage, structure_price_level = self.get_unit_damage_for_building_class(building_data.building_class, SSMFunctionType.STRUCTURE, year_for_inflation_adjustment)
-                content_unit_damage, content_price_level = self.get_unit_damage_for_building_class(building_data.building_class, SSMFunctionType.CONTENT, year_for_inflation_adjustment)
-                structure_damage = building_footprint_area * structure_unit_damage * relevant_floor_count
-                content_damage = content_unit_damage * building_data.num_units
-                return structure_damage + content_damage, max(structure_price_level, content_price_level)
+                pass                
             else:
                 raise e
+        if function.metadata.id in [9, 395, 396] and building_data.building_class in [BuildingClass.SINGLE_UNIT_RESIDENTIAL, BuildingClass.MULTI_UNIT_RESIDENTIAL]:
+            if function.metadata.id != 396:
+                relevant_floor_count = 1 # 9 = ground floor and 395 = first floor (both only relate to one floor)
+            else:
+                relevant_floor_count = min(MAX_FLOOR_COUNT_FOR_DAMAGE_CALCULATION, building_data.floor_count) - 2 # 396 = upper floors (all floors above the first and ground floor, thus subtract those)
+            structure_unit_damage, structure_price_level = self.get_unit_damage_for_building_class(building_data.building_class, SSMFunctionType.STRUCTURE, year_for_inflation_adjustment)
+            content_unit_damage, content_price_level = self.get_unit_damage_for_building_class(building_data.building_class, SSMFunctionType.CONTENT, year_for_inflation_adjustment)
+            structure_damage = building_footprint_area * structure_unit_damage * relevant_floor_count
+            units_per_floor = building_data.num_units / building_data.floor_count if building_data.floor_count > 0 else building_data.num_units
+            content_damage = content_unit_damage * units_per_floor * relevant_floor_count
+            return structure_damage + content_damage, max(structure_price_level, content_price_level)
 
         if building_data.building_class not in [BuildingClass.SINGLE_UNIT_RESIDENTIAL, BuildingClass.MULTI_UNIT_RESIDENTIAL]:
             assert ground_floor_unit_damage is None, "Non-residential buildings should not have a unique ground floor class"

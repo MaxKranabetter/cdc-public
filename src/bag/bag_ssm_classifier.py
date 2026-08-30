@@ -5,8 +5,10 @@ import pandas as pd
 from src.calc.models import BuildingClass, BuildingData
 from src.bag.models import VerblijfsobjectFeature
 from src.ssm.models import DamageFunctionPackage
+
 from shapely.wkt import loads
 from shapely.geometry import Polygon, shape
+
 import json
 
 BAG_TO_MAIN_CATEGORY = {
@@ -107,14 +109,15 @@ class BAGSSMClassifier:
             return {k: v / total for k, v in scores_dict.items() if v > 0}
         return {}
     
-    def determine_building_data(self, name: str, bag_data: pd.Series) -> BuildingData:
+    def determine_building_data(self, name: str, bag_data: pd.Series, address: str, crs) -> BuildingData:
         main_class, unique_ground_floor_class = self.match_bag_object_to_building_class(bag_data)
         return BuildingData(
             name=name,
             polygon=bag_data.geometry,
+            crs=crs.srs,
             building_class=main_class,
             num_units=len(bag_data.get('verblijfsobjecten', [])),
             unique_ground_floor_class=unique_ground_floor_class,
             floor_count=bag_data.get('building_floors', 1) or 1,
-            sbi_code=bag_data.get('sbi_code', None),
+            input_address=address
         )

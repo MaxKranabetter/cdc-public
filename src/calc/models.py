@@ -29,14 +29,11 @@ class BuildingDataInput:
     building_classifier_type: BuildingClassifierType | None = None
     building_class: BuildingClass | None = None
 
-    sbi_code: str | None = None
-
     def __init__(self,
         name: str | None = None,
         address: str | None = None,
         shapefile_path: str | None = None,
         geodataframe: gpd.GeoDataFrame | None = None,
-        sbi_code: str | None = None,
         building_classifier_type: BuildingClassifierType | None = None,
         building_class: BuildingClass | None = None):
         if building_classifier_type is None and building_class is None:
@@ -44,7 +41,6 @@ class BuildingDataInput:
 
         self.name = name
         self.address = address
-        self.sbi_code = sbi_code
         self.shapefile_path = shapefile_path
         self.geodataframe = geodataframe
         self.building_classifier_type = building_classifier_type
@@ -53,18 +49,29 @@ class BuildingDataInput:
 @dataclass
 class CDCInputs:
     building_input: BuildingDataInput
+    is_overlast: bool = False
+    is_overstroming: bool = True
     override_floodmaps: dict[int, str] | None = None
+
+    @model_validator(mode="after")
+    def check_flood_type(cls, values):
+        is_overlast = values.get("is_overlast", False)
+        is_overstroming = values.get("is_overstroming", True)
+        if is_overlast == is_overstroming:
+            raise ValueError("Exactly one of is_overlast or is_overstroming must be True")
+        return values
 
 class BuildingData(BaseModel):
     model_config = ConfigDict(arbitrary_types_allowed=True)
 
     name: str
+    crs: str
     polygon: shapely.geometry.Polygon = None
     building_class: BuildingClass
+    input_address: str | None = None
     
     floor_count: int = 1
     num_units: int = 1
-    sbi_code: str | None = None
     unique_ground_floor_class: BuildingClass | None = None
 
     @model_validator(mode="before")
@@ -91,6 +98,7 @@ class FloodDepth(BaseModel):
 class DamageEstimate(BaseModel):
     damage_description: str
     price_level_year: int
+    ssm_function_id: int
     currency: Literal["EUR"] = "EUR"
     value: float = 0.0
     absolute_maximum_damage: float = 0.0
@@ -140,6 +148,8 @@ class CDCOutput(BaseModel):
     annualised_expected_damages: list[DamageEstimate]
 
     warnings: list[str] = []
+    is_overlast: bool = False
+    is_overstroming: bool = True
 
     @property
     def total_annualised_expected_damage(self) -> DamageEstimate:
